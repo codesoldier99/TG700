@@ -168,6 +168,6 @@ private:
     bool setup_dodecahexa_matrix(motor_frame_type frame_type);
     bool setup_y6_matrix(motor_frame_type frame_type);
     bool setup_octaquad_matrix(motor_frame_type frame_type);
-
+    bool setup_motors_tg700();
     static AP_MotorsMatrix *_singleton;
 };
