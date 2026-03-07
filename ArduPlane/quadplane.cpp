@@ -154,7 +154,7 @@ const AP_Param::GroupInfo QuadPlane::var_info[] = {
     // @Param: FRAME_CLASS
     // @DisplayName: Frame Class
     // @Description: Controls major frame class for multicopter component
-    // @Values: 0:Undefined, 1:Quad, 2:Hexa, 3:Octa, 4:OctaQuad, 5:Y6, 7:Tri, 10: Single/Dual, 12:DodecaHexa, 14:Deca, 15:Scripting Matrix, 17:Dynamic Scripting Matrix
+    // @Values: 0:Undefined, 1:Quad, 2:Hexa, 3:Octa, 4:OctaQuad, 5:Y6, 7:Tri, 10: Single/Dual, 12:DodecaHexa, 14:Deca, 15:Scripting Matrix, 17:Dynamic Scripting Matrix, 18:TG700
     // @User: Standard
     AP_GROUPINFO("FRAME_CLASS", 46, QuadPlane, frame_class, 1),
 
@@ -708,6 +708,14 @@ bool QuadPlane::setup(void)
     case AP_Motors::MOTOR_FRAME_DECA:
         setup_default_channels(10);
         break;
+    case AP_Motors::MOTOR_FRAME_DODECAHEXA:
+        setup_default_channels(12);
+        break;
+#if AP_MOTORS_FRAME_TG700_ENABLED
+    case AP_Motors::MOTOR_FRAME_TG700:
+        setup_default_channels(16);
+        break;
+#endif
     case AP_Motors::MOTOR_FRAME_TRI:
         SRV_Channels::set_default_function(CH_5, SRV_Channel::k_motor1);
         SRV_Channels::set_default_function(CH_6, SRV_Channel::k_motor2);
