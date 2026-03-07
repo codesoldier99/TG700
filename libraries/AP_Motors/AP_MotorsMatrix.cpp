@@ -1336,6 +1336,7 @@ void AP_MotorsMatrix::setup_motors(motor_frame_class frame_class, motor_frame_ty
     case MOTOR_FRAME_TG700:
         success = setup_motors_tg700();
         break;
+ #endif // AP_MOTORS_FRAME_TG700_ENABLED
     default:
         // matrix doesn't support the configured class
         success = false;

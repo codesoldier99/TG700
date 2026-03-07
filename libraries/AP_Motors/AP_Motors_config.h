@@ -26,7 +26,7 @@
 #define AP_MOTORS_MAX_NUM_MOTORS 12
 #endif
 
-#endif  // defined (AP_MOTORS_MAX_NUM_MOTORS)
+
 
 #ifndef AP_MOTORS_TRI_ENABLED
 #define AP_MOTORS_TRI_ENABLED 1
@@ -56,6 +56,10 @@
 #endif
 #ifndef AP_MOTORS_FRAME_OCTAQUAD_ENABLED
 #define AP_MOTORS_FRAME_OCTAQUAD_ENABLED AP_MOTORS_FRAME_DEFAULT_ENABLED
+#endif
+#ifndef AP_MOTORS_FRAME_TG700_ENABLED
+#define AP_MOTORS_FRAME_TG700_ENABLED 1
+// 或者 AP_MOTORS_FRAME_DEFAULT_ENABLED
 #endif
 
 // scale factor for top layer to prevent beat frequency between top and bottom
