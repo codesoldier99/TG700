@@ -936,14 +936,17 @@ def build(bld):
     _build_cmd_tweaks(bld)
 
     if bld.env.SUBMODULE_UPDATE:
-        bld.add_group('git_submodules')
+        if 'git_submodules' not in bld.group_names:
+            bld.add_group('git_submodules')
         for name in bld.env.GIT_SUBMODULES:
             bld.git_submodule(name)
 
-    bld.add_group('dynamic_sources')
+    if 'dynamic_sources' not in bld.group_names:
+        bld.add_group('dynamic_sources')
     _build_dynamic_sources(bld)
 
-    bld.add_group('build')
+    if 'build' not in bld.group_names:
+        bld.add_group('build')
     bld.get_board().build(bld)
     _build_common_taskgens(bld)
 
