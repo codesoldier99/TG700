@@ -911,6 +911,18 @@ def _load_pre_build(bld):
 def build(bld):
     if is_ci:
         print(f"::group::Waf Build")
+
+    # Monkey-patch add_group to be idempotent: skip instead of raising
+    # WafError when a group name already exists. This prevents build
+    # failures from duplicate group registration across waf tool loading.
+    _orig_add_group = bld.add_group.__func__
+    def _safe_add_group(self, name=None, move=True):
+        if name and name in self.group_names:
+            return
+        _orig_add_group(self, name, move)
+    import types
+    bld.add_group = types.MethodType(_safe_add_group, bld)
+
     config_hash = Utils.h_file(bld.bldnode.make_node('ap_config.h').abspath())
     bld.env.CCDEPS = config_hash
     bld.env.CXXDEPS = config_hash
@@ -936,17 +948,14 @@ def build(bld):
     _build_cmd_tweaks(bld)
 
     if bld.env.SUBMODULE_UPDATE:
-        if 'git_submodules' not in bld.group_names:
-            bld.add_group('git_submodules')
+        bld.add_group('git_submodules')
         for name in bld.env.GIT_SUBMODULES:
             bld.git_submodule(name)
 
-    if 'dynamic_sources' not in bld.group_names:
-        bld.add_group('dynamic_sources')
+    bld.add_group('dynamic_sources')
     _build_dynamic_sources(bld)
 
-    if 'build' not in bld.group_names:
-        bld.add_group('build')
+    bld.add_group('build')
     bld.get_board().build(bld)
     _build_common_taskgens(bld)
 
