@@ -232,11 +232,14 @@ const AP_Param::GroupInfo SRV_Channels::var_info[] = {
  
 #if (NUM_SERVO_CHANNELS >= 17)
     // @Param: _32_ENABLE
-    // @DisplayName: Enable outputs 17 to 31
+    // @DisplayName: Enable outputs 17 to 32
     // @Description: This allows for up to 32 outputs, enabling parameters for outputs above 16
     // @User: Advanced
     // @Values: 0:Disabled,1:Enabled
-    AP_GROUPINFO_FLAGS("_32_ENABLE", 43, SRV_Channels, enable_32_channels, 0, AP_PARAM_FLAG_ENABLE),
+#ifndef HAL_SERVO_32_ENABLE_DEFAULT
+    #define HAL_SERVO_32_ENABLE_DEFAULT 0
+#endif
+    AP_GROUPINFO_FLAGS("_32_ENABLE", 43, SRV_Channels, enable_32_channels, HAL_SERVO_32_ENABLE_DEFAULT, AP_PARAM_FLAG_ENABLE),
 #endif
 
 #if (NUM_SERVO_CHANNELS >= 17)

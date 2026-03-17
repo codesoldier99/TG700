@@ -348,3 +348,10 @@ ROMFS io_firmware_dshot.bin Tools/IO_Firmware/iofirmware_f103_dshot_lowpolh.bin
 define HAL_WITH_IO_MCU_BIDIR_DSHOT 1
 
 
+
+# ============================================================================
+# TG700 Configuration: Enable 32 servo output channels
+# TG700 requires: 16 motors + 14 servos + 1 engine + 4 payload = 35 channels
+# Enable SERVO17-32 parameters by default in Mission Planner
+# ============================================================================
+define HAL_SERVO_32_ENABLE_DEFAULT 1
