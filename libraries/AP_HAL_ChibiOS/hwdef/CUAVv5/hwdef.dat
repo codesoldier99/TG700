@@ -29,3 +29,10 @@ IMU Invensense SPI:icm20602 ROTATION_NONE
 IMU Invensensev3 SPI:icm42688 ROTATION_PITCH_180_YAW_270
 IMU BMI055 SPI:bmi055_a SPI:bmi055_g ROTATION_ROLL_180_YAW_90
 IMU BMI088 SPI:bmi055_a SPI:bmi055_g ROTATION_ROLL_180_YAW_90
+
+# ============================================================================
+# TG700 Configuration: Enable 32 servo output channels
+# TG700 requires: 16 motors + 14 servos + 1 engine + 4 payload = 35 channels
+# Enable SERVO17-32 parameters by default in Mission Planner
+# ============================================================================
+define HAL_SERVO_32_ENABLE_DEFAULT 1
