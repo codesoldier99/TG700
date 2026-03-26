@@ -120,7 +120,7 @@ MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t m
     motor_test.seq = motor_seq;
     motor_test.throttle_type = throttle_type;
     motor_test.throttle_value = throttle_value;
-    motor_test.motor_count = MIN(motor_count, 8);
+    motor_test.motor_count = MIN(motor_count, AP_MOTORS_MAX_NUM_MOTORS);
 
     // return success
     return MAV_RESULT_ACCEPTED;
