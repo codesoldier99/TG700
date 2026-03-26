@@ -30,6 +30,8 @@ void QuadPlane::motor_test_output()
                 motor_test.seq++;
                 motor_test.motor_count--;
                 motor_test.start_ms = now;
+                gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: testing seq=%u (%u remaining)",
+                                motor_test.seq, motor_test.motor_count);
             }
             return;
         }
@@ -37,7 +39,7 @@ void QuadPlane::motor_test_output()
         motor_test_stop();
         return;
     }
-            
+
     int16_t pwm = 0;   // pwm that will be output to the motors
 
     // calculate pwm based on throttle type
@@ -79,6 +81,18 @@ void QuadPlane::motor_test_output()
     }
 }
 
+// count_configured_motors - count how many motors are enabled in the motor matrix
+uint8_t QuadPlane::count_configured_motors() const
+{
+    uint8_t count = 0;
+    for (uint8_t i = 0; i < AP_MOTORS_MAX_NUM_MOTORS; i++) {
+        if (motors->is_motor_enabled(i)) {
+            count++;
+        }
+    }
+    return count;
+}
+
 // mavlink_motor_test_start - start motor test - spin a single motor at a specified pwm
 //  returns MAV_RESULT_ACCEPTED on success, MAV_RESULT_FAILED on failure
 MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t motor_seq, uint8_t throttle_type,
@@ -99,6 +113,27 @@ MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t m
     if (!motors->motor_test_checks(ARRAY_SIZE(failure_msg), failure_msg)) {
         gcs().send_text(MAV_SEVERITY_CRITICAL,"Motor Test: %s", failure_msg);
         return MAV_RESULT_FAILED;
+    }
+
+    // Mission Planner "Test All Motors" sends rapid individual commands
+    // (seq=1 count=0, seq=2 count=0, seq=3 count=0, seq=4 count=0)
+    // within <1 second, each overriding the previous. This means only the
+    // last motor gets tested, and motors beyond MP's known count (e.g. 5-16)
+    // are never reached.
+    //
+    // Fix: when a test is already running and we receive another individual
+    // command (count<=1) within 1 second, extend the test to cover ALL
+    // configured motors instead of overriding.
+    if (motor_test.running && motor_count <= 1 &&
+        (AP_HAL::millis() - motor_test.start_ms) < 1000) {
+        const uint8_t configured = count_configured_motors();
+        if (configured > 1) {
+            motor_test.motor_count = configured;
+            gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: extended to %u motors (seq=%u)",
+                            motor_test.motor_count, motor_test.seq);
+        }
+        // Don't override seq or restart timer - let existing test continue
+        return MAV_RESULT_ACCEPTED;
     }
 
     // if test has not started try to start it
@@ -123,24 +158,18 @@ MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t m
     motor_test.throttle_type = throttle_type;
     motor_test.throttle_value = throttle_value;
 
-    // For "test all" (motor_count > 1), ensure ALL configured motors are tested.
-    // GCS (Mission Planner) may report fewer motors than actually configured
-    // (e.g. 4 for MAV_TYPE_GENERIC), causing motors on CAN2 bus to never be tested.
+    // Determine motor_count
     if (motor_count > 1) {
-        uint8_t configured_count = 0;
-        for (uint8_t i = 0; i < AP_MOTORS_MAX_NUM_MOTORS; i++) {
-            if (motors->is_motor_enabled(i)) {
-                configured_count++;
-            }
-        }
-        motor_test.motor_count = MAX(motor_count, configured_count);
+        // Explicit "test all" from GCS - ensure all configured motors are covered
+        const uint8_t configured = count_configured_motors();
+        motor_test.motor_count = MAX(motor_count, configured);
         motor_test.motor_count = MIN(motor_test.motor_count, AP_MOTORS_MAX_NUM_MOTORS);
     } else {
         motor_test.motor_count = motor_count;
     }
 
-    gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: seq=%u count=%u (GCS sent %u)",
-                    motor_test.seq, motor_test.motor_count, motor_count);
+    gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: seq=%u count=%u timeout=%.1fs (GCS sent %u)",
+                    motor_test.seq, motor_test.motor_count, timeout_sec, motor_count);
 
     // return success
     return MAV_RESULT_ACCEPTED;
@@ -153,6 +182,8 @@ void QuadPlane::motor_test_stop()
     if (!motor_test.running) {
         return;
     }
+
+    gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: complete");
 
     // flag test is complete
     motor_test.running = false;
