@@ -2,3 +2,54 @@ CAN_P1_DRIVER 1
 CAN_P2_DRIVER 2
 
 BATT_MONITOR 8
+
+# ============================================================================
+# TG700 QuadPlane defaults
+# ============================================================================
+Q_ENABLE 1
+Q_FRAME_CLASS 18
+Q_FRAME_TYPE 0
+
+# ============================================================================
+# TG700 Motor-to-SERVO channel mapping
+#
+# CRITICAL: ArduPilot motor function codes are NOT contiguous!
+#   Motor1-8:   function 33-40  (k_motor1  to k_motor8)
+#   Motor9-12:  function 82-85  (k_motor9  to k_motor12)
+#   Motor13-16: function 160-163 (k_motor13 to k_motor16)
+#
+# Motor layout (top view, facing nose):
+#   Front row: P1(M1,M2) P2(M3,M4) P3(M5,M6) P4(M7,M8)
+#   Rear  row: P5(M9,M10) P6(M11,M12) P7(M13,M14) P8(M15,M16)
+# ============================================================================
+
+# Front row motors (Motor1-8) → SERVO5-12
+SERVO5_FUNCTION 33
+SERVO6_FUNCTION 34
+SERVO7_FUNCTION 35
+SERVO8_FUNCTION 36
+SERVO9_FUNCTION 37
+SERVO10_FUNCTION 38
+SERVO11_FUNCTION 39
+SERVO12_FUNCTION 40
+
+# Rear row motors (Motor9-12) → SERVO13-16
+SERVO13_FUNCTION 82
+SERVO14_FUNCTION 83
+SERVO15_FUNCTION 84
+SERVO16_FUNCTION 85
+
+# Rear row motors (Motor13-16) → SERVO17-20
+SERVO17_FUNCTION 160
+SERVO18_FUNCTION 161
+SERVO19_FUNCTION 162
+SERVO20_FUNCTION 163
+
+# ============================================================================
+# DroneCAN ESC configuration
+#
+# ESC_BM bitmask: bits 4-19 = SERVO5-SERVO20 = 0xFFFF0 = 1048560
+# ESC_OF offset: 4 (skip SERVO1-4, so Motor1 maps to RawCommand index 0)
+# ============================================================================
+CAN_D1_UC_ESC_BM 1048560
+CAN_D1_UC_ESC_OF 4
