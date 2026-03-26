@@ -3,6 +3,9 @@ CAN_P2_DRIVER 2
 
 BATT_MONITOR 8
 
+# M9 board has no physical safety switch button
+BRD_SAFETY_DEFLT 0
+
 # ============================================================================
 # TG700 QuadPlane defaults
 # ============================================================================

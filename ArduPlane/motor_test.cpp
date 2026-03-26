@@ -107,7 +107,8 @@ MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t m
 
         // enable and arm motors
         set_armed(true);
-        
+        hal.util->set_soft_armed(true);
+
         // turn on notify leds
         AP_Notify::flags.esc_calibration = true;
     }
@@ -139,6 +140,7 @@ void QuadPlane::motor_test_stop()
 
     // disarm motors
     set_armed(false);
+    hal.util->set_soft_armed(false);
 
     // reset timeout
     motor_test.start_ms = 0;
