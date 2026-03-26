@@ -2,3 +2,91 @@ CAN_P1_DRIVER 1
 CAN_P2_DRIVER 2
 
 BATT_MONITOR 8
+
+# ============================================================================
+# TG700 QuadPlane defaults
+# ============================================================================
+Q_ENABLE 1
+Q_FRAME_CLASS 18
+Q_FRAME_TYPE 0
+
+# ============================================================================
+# TG700 Dual CAN Bus Motor-to-SERVO Channel Mapping
+#
+# CRITICAL: ArduPilot motor function codes are NOT contiguous!
+#   Motor1-8:   function 33-40  (k_motor1  to k_motor8)
+#   Motor9-12:  function 82-85  (k_motor9  to k_motor12)
+#   Motor13-16: function 160-163 (k_motor13 to k_motor16)
+#
+# Physical wiring:
+#   CAN1 (M9 CAN1 port): Right side = Motor 1,2,3,4 (front) + 9,10,11,12 (rear)
+#   CAN2 (M9 CAN2 port): Left side  = Motor 5,6,7,8 (front) + 13,14,15,16 (rear)
+#
+# Design principle:
+#   Each CAN bus must have its motors on CONTIGUOUS SERVO channels.
+#   SRV_send_esc() iterates sequentially from ESC_OF to max_esc_num,
+#   filling cmd.data[k] for k = channel - ESC_OF. Non-contiguous channels
+#   create gaps (zeros) causing ESC index mismatch.
+#
+# Channel layout:
+#   SERVO5-12  (ch 4-11) → CAN1 bus (8 right-side motors)
+#   SERVO13-20 (ch 12-19) → CAN2 bus (8 left-side motors)
+#
+# Motor layout (top view, facing nose):
+#              Nose (+X)
+#              |
+#   P4(L-out) P3(L-in)    P2(R-in) P1(R-out)  Front
+#   M7,M8     M5,M6       M3,M4    M1,M2
+#              |
+#   P8(L-out) P7(L-in)    P6(R-in) P5(R-out)  Rear
+#   M15,M16   M13,M14     M11,M12  M9,M10
+# ============================================================================
+
+# --- CAN1 bus: Right side motors → SERVO5-12 (channel index 4-11) ---
+# Front right: P1(M1,M2), P2(M3,M4)
+SERVO5_FUNCTION 33
+SERVO6_FUNCTION 34
+SERVO7_FUNCTION 35
+SERVO8_FUNCTION 36
+# Rear right: P5(M9,M10), P6(M11,M12)
+SERVO9_FUNCTION 82
+SERVO10_FUNCTION 83
+SERVO11_FUNCTION 84
+SERVO12_FUNCTION 85
+
+# --- CAN2 bus: Left side motors → SERVO13-20 (channel index 12-19) ---
+# Front left: P3(M5,M6), P4(M7,M8)
+SERVO13_FUNCTION 37
+SERVO14_FUNCTION 38
+SERVO15_FUNCTION 39
+SERVO16_FUNCTION 40
+# Rear left: P7(M13,M14), P8(M15,M16)
+SERVO17_FUNCTION 160
+SERVO18_FUNCTION 161
+SERVO19_FUNCTION 162
+SERVO20_FUNCTION 163
+
+# ============================================================================
+# DroneCAN ESC Configuration - Dual CAN Bus
+#
+# Each CAN bus sends RawCommand with 8 contiguous entries (indices 0-7):
+#
+# CAN1 RawCommand (ESC_OF=4, from SERVO5):
+#   cmd[0]=Motor1  cmd[1]=Motor2  cmd[2]=Motor3  cmd[3]=Motor4
+#   cmd[4]=Motor9  cmd[5]=Motor10 cmd[6]=Motor11 cmd[7]=Motor12
+#
+# CAN2 RawCommand (ESC_OF=12, from SERVO13):
+#   cmd[0]=Motor5  cmd[1]=Motor6  cmd[2]=Motor7  cmd[3]=Motor8
+#   cmd[4]=Motor13 cmd[5]=Motor14 cmd[6]=Motor15 cmd[7]=Motor16
+#
+# ESC node index assignment (must match ESC firmware config):
+#   Each bus: front-upper=0, front-lower=1, ..., rear-lower=7
+#
+# ESC_BM calculation:
+#   CAN1: bits 4-11  = 0x0FF0 = 4080
+#   CAN2: bits 12-19 = 0xFF000 = 1044480
+# ============================================================================
+CAN_D1_UC_ESC_BM 4080
+CAN_D1_UC_ESC_OF 4
+CAN_D2_UC_ESC_BM 1044480
+CAN_D2_UC_ESC_OF 12
