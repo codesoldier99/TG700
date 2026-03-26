@@ -91,5 +91,7 @@ SERVO20_FUNCTION 163
 # ============================================================================
 CAN_D1_UC_ESC_BM 4080
 CAN_D1_UC_ESC_OF 4
+CAN_D1_UC_NODE 10
 CAN_D2_UC_ESC_BM 1044480
 CAN_D2_UC_ESC_OF 12
+CAN_D2_UC_NODE 11
