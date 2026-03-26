@@ -73,7 +73,8 @@ void QuadPlane::motor_test_output()
 
     // turn on motor to specified pwm value
     if (!motors->output_test_seq(motor_test.seq, pwm)) {
-        gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: cancelled");
+        gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: cancelled seq=%u armed=%u interlock=%u",
+                        motor_test.seq, motors->armed(), motors->get_interlock());
         motor_test_stop();
     }
 }
@@ -121,7 +122,25 @@ MAV_RESULT QuadPlane::mavlink_motor_test_start(mavlink_channel_t chan, uint8_t m
     motor_test.seq = motor_seq;
     motor_test.throttle_type = throttle_type;
     motor_test.throttle_value = throttle_value;
-    motor_test.motor_count = MIN(motor_count, AP_MOTORS_MAX_NUM_MOTORS);
+
+    // For "test all" (motor_count > 1), ensure ALL configured motors are tested.
+    // GCS (Mission Planner) may report fewer motors than actually configured
+    // (e.g. 4 for MAV_TYPE_GENERIC), causing motors on CAN2 bus to never be tested.
+    if (motor_count > 1) {
+        uint8_t configured_count = 0;
+        for (uint8_t i = 0; i < AP_MOTORS_MAX_NUM_MOTORS; i++) {
+            if (motors->is_motor_enabled(i)) {
+                configured_count++;
+            }
+        }
+        motor_test.motor_count = MAX(motor_count, configured_count);
+        motor_test.motor_count = MIN(motor_test.motor_count, AP_MOTORS_MAX_NUM_MOTORS);
+    } else {
+        motor_test.motor_count = motor_count;
+    }
+
+    gcs().send_text(MAV_SEVERITY_INFO, "Motor Test: seq=%u count=%u (GCS sent %u)",
+                    motor_test.seq, motor_test.motor_count, motor_count);
 
     // return success
     return MAV_RESULT_ACCEPTED;
