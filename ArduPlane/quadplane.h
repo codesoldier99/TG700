@@ -748,6 +748,7 @@ public:
                                         uint8_t motor_count);
 private:
     void motor_test_stop();
+    uint8_t count_configured_motors() const;
 
     static QuadPlane *_singleton;
 };
