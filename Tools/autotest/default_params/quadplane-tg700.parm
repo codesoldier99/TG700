@@ -1,0 +1,177 @@
+# ============================================================
+# TG700 SITL 参数文件
+# TianGong-700 16-Motor Coaxial QuadPlane SITL Default Params
+#
+# 用途: ArduPilot SITL 仿真 + 参数辨识
+# 固件: ArduPlane V4.7.0-dev (QuadPlane)
+# 启动: sim_vehicle.py -v ArduPlane -f quadplane \
+#         --add-param-file=Tools/autotest/default_params/quadplane-tg700.parm \
+#         --map --console
+# ============================================================
+
+# ---- 帧型 ----
+Q_ENABLE            1
+Q_FRAME_CLASS       18      # MOTOR_FRAME_TG700
+Q_FRAME_TYPE        0       # PLUS/standard
+
+# ---- SERVO 函数分配 (与实机完全一致) ----
+SERVO1_FUNCTION     4       # Aileron
+SERVO2_FUNCTION     19      # Elevator
+SERVO3_FUNCTION     70      # Throttle
+SERVO4_FUNCTION     21      # Rudder
+SERVO5_FUNCTION     33      # Motor1  P1-Upper-CW   前右外
+SERVO6_FUNCTION     34      # Motor2  P1-Lower-CCW  前右外
+SERVO7_FUNCTION     35      # Motor3  P2-Upper-CW   前右内
+SERVO8_FUNCTION     36      # Motor4  P2-Lower-CCW  前右内
+SERVO9_FUNCTION     82      # Motor9  P5-Upper-CW   后右外
+SERVO10_FUNCTION    83      # Motor10 P5-Lower-CCW  后右外
+SERVO11_FUNCTION    84      # Motor11 P6-Upper-CW   后右内
+SERVO12_FUNCTION    85      # Motor12 P6-Lower-CCW  后右内
+SERVO13_FUNCTION    37      # Motor5  P3-Upper-CW   前左内
+SERVO14_FUNCTION    38      # Motor6  P3-Lower-CCW  前左内
+SERVO15_FUNCTION    39      # Motor7  P4-Upper-CW   前左外
+SERVO16_FUNCTION    40      # Motor8  P4-Lower-CCW  前左外
+SERVO17_FUNCTION    160     # Motor13 P7-Upper-CW   后左内
+SERVO18_FUNCTION    161     # Motor14 P7-Lower-CCW  后左内
+SERVO19_FUNCTION    162     # Motor15 P8-Upper-CW   后左外
+SERVO20_FUNCTION    163     # Motor16 P8-Lower-CCW  后左外
+
+# ---- CAN 总线仿真配置 ----
+CAN_P1_DRIVER       1
+CAN_P2_DRIVER       2
+CAN_D1_PROTOCOL     1       # DroneCAN
+CAN_D1_UC_ESC_BM    4080    # bits 4-11 = 右翼 8 个 ESC
+CAN_D1_UC_ESC_OF    4
+CAN_D1_UC_NODE      10
+CAN_D2_PROTOCOL     1       # DroneCAN
+CAN_D2_UC_ESC_BM    1044480 # bits 12-19 = 左翼 8 个 ESC
+CAN_D2_UC_ESC_OF    12
+CAN_D2_UC_NODE      11
+
+# ---- SITL 仿真物理参数 ----
+# 电机振动仿真 (无桨时极低, 带桨约 200-400)
+SIM_VIB_MOT_MAX     300
+# 重力仿真
+SIM_WIND_SPD        0
+SIM_WIND_DIR        0
+
+# ---- IMU 滤波器 (与实机一致) ----
+INS_GYRO_FILTER     20
+INS_ACCEL_FILTER    20
+INS_FAST_SAMPLE     7
+
+# ---- EKF ----
+AHRS_EKF_TYPE       3       # EKF3
+EK3_ENABLE          1
+EK3_IMU_MASK        3
+
+# ---- GPS (SITL 使用内置 GPS 仿真) ----
+GPS1_TYPE           1       # AUTO
+
+# ---- 电机参数 (与实机一致) ----
+Q_M_THST_EXPO       0.65
+Q_M_SPIN_MIN        0.15
+Q_M_SPIN_ARM        0.05
+Q_M_SPIN_MAX        0.95
+Q_M_THST_HOVER      0.35
+Q_M_HOVER_LEARN     0       # SITL 关闭自动学习, 手动设定
+Q_M_PWM_MIN         1000
+Q_M_PWM_MAX         2000
+Q_M_SPOOL_TIME      0.25
+Q_M_YAW_HEADROOM    200
+Q_M_SAFE_TIME       1
+
+# ---- 姿态控制 PID (首飞保守初值) ----
+# Roll 速率环 - 大翼展大惯量, P/I 降至 0.08
+Q_A_RAT_RLL_P       0.08
+Q_A_RAT_RLL_I       0.08
+Q_A_RAT_RLL_D       0.002
+Q_A_RAT_RLL_FF      0
+Q_A_RAT_RLL_IMAX    0.3
+Q_A_RAT_RLL_FLTT    20
+Q_A_RAT_RLL_FLTD    10
+Q_A_RAT_RLL_SMAX    50
+
+# Pitch 速率环
+Q_A_RAT_PIT_P       0.08
+Q_A_RAT_PIT_I       0.08
+Q_A_RAT_PIT_D       0.002
+Q_A_RAT_PIT_FF      0
+Q_A_RAT_PIT_IMAX    0.3
+Q_A_RAT_PIT_FLTT    20
+Q_A_RAT_PIT_FLTD    10
+Q_A_RAT_PIT_SMAX    50
+
+# Yaw 速率环
+Q_A_RAT_YAW_P       0.15
+Q_A_RAT_YAW_I       0.015
+Q_A_RAT_YAW_D       0
+Q_A_RAT_YAW_FF      0
+Q_A_RAT_YAW_IMAX    0.4
+Q_A_RAT_YAW_FLTT    20
+Q_A_RAT_YAW_FLTE    2.5
+Q_A_RAT_YAW_FLTD    20
+Q_A_RAT_YAW_SMAX    50
+
+# 姿态角环
+Q_A_ANG_RLL_P       4.5
+Q_A_ANG_PIT_P       4.5
+Q_A_ANG_YAW_P       4.5
+Q_A_ANG_LIM_TC      1.0
+
+# 速率/加速度限制
+Q_A_RATE_R_MAX      45      # deg/s, 大型机降低
+Q_A_RATE_P_MAX      45
+Q_A_RATE_Y_MAX      30
+Q_A_ACCEL_R_MAX     20000   # deg/s², 保守
+Q_A_ACCEL_P_MAX     20000
+Q_A_ACCEL_Y_MAX     6000
+Q_A_SLEW_YAW        4000
+
+# 油门混合
+Q_A_THR_MIX_MIN     0.1
+Q_A_THR_MIX_MAX     0.5
+Q_A_THR_MIX_MAN     0.1
+
+# ---- 垂直速度和位置控制 ----
+Q_PILOT_SPD_UP      1.5     # m/s 保守上升速度
+Q_PILOT_SPD_DN      1.0     # m/s 保守下降速度
+Q_PILOT_ACCEL_Z     2.0
+
+# ---- 系统 ID 参数 (SITL 专用 - 参数辨识 chirp 扫频) ----
+# 注: AP_PLANE_SYSTEMID_ENABLED 仅在 SITL 编译时默认启用
+# SID_AXIS=0 (关闭), 测试时按轴单独设置
+SID_AXIS            0
+SID_MAGNITUDE       3.0     # 激励幅值 deg 或 deg/s, 保守值
+SID_F_START_HZ      0.5     # 起始频率 Hz
+SID_F_STOP_HZ       8.0     # 终止频率 Hz (大型机带宽低, 不超8Hz)
+SID_T_FADE_IN       5.0     # 淡入时间 s
+SID_T_REC           60.0    # 单轴 chirp 总时长 s
+SID_T_FADE_OUT      2.0     # 淡出时间 s
+
+# ---- 自动调参 ----
+AUTOTUNE_LEVEL      4       # 保守调参级别 (1-10, 10最激进)
+AUTOTUNE_AXES       7       # Roll+Pitch+Yaw
+
+# ---- 模式和保护 ----
+FLTMODE1            17      # QSTABILIZE
+FLTMODE2            18      # QHOVER
+FLTMODE3            19      # QLOITER
+FLTMODE4            20      # QLAND
+INITIAL_MODE        17      # 上电默认 QSTABILIZE
+Q_RTL_ALT           15
+Q_RTL_ALT_MIN       10
+
+# ---- 日志 ----
+LOG_BITMASK         65535   # 全量日志
+
+# ---- 调度循环 ----
+SCHED_LOOP_RATE     300
+
+# ---- 电池保护 (SITL 设置较宽松) ----
+BATT_MONITOR        4       # 仅电压
+BATT_LOW_VOLT       0       # 关闭低压警告
+BATT_CRT_VOLT       0
+
+# ---- RC 输入 (SITL 使用 SITL RC) ----
+RC_PROTOCOLS        1
