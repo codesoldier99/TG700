@@ -1,0 +1,243 @@
+# ============================================================================
+# TG700 First-Takeoff Parameter Set v2.0 (Light-Load 200kg variant)
+# Date: 2026-05-02
+# Baseline: v1.0 (Tools/Frame_params/QuadPlanes/TG700_takeoff_v1.param)
+# Purpose: Iron-bird first-takeoff with REDUCED test weight (~200kg vs design 700kg)
+#
+# IMPORTANT - Why a separate v2 file:
+#   When test article weighs 200kg instead of designed 700kg, the thrust-to-weight
+#   ratio jumps from ~2.0 to ~7.0. The aircraft becomes "over-powered by 3.5x"
+#   relative to v1 expectations.
+#
+#   Hover throttle drops from ~50% to ~20-25%.
+#   Same PID gains become 3.5x more aggressive (lower inertia).
+#   Same throttle command produces 3.5x acceleration.
+#
+#   v1 parameters used directly with 200kg load WILL CAUSE:
+#   - Aircraft shooting up violently when reaching ~30% throttle
+#   - PID oscillation due to over-aggressive control
+#   - Possible iron-bird tether snap or canopy strike
+#
+# Load via: Mission Planner -> CONFIG -> Full Parameter Tree -> Load from file
+#
+# Required after loading:
+#   1. Click "Write Params" in Mission Planner
+#   2. Power-cycle flight controller
+#   3. Re-do accelerometer 6-side calibration + RC calibration + Level Horizon
+#   4. Verify iron-bird tether/restraint can withstand 800kg pull (16 motors x 7000N peak)
+#   5. Reduce 陆科 power supply current limit to 80A (NOT 300A)
+#
+# Operator instructions:
+#   - Push throttle SLOWLY to ~18% and STOP, observe motor sound
+#   - Then add 1% at a time
+#   - Aircraft may lift off at 22-26%, NOT 50%
+#   - Hold for 1 second only, then immediately reduce to 15% (just above idle)
+# ============================================================================
+
+
+# ============================================================================
+# P0 - CRITICAL SAFETY (must apply, do NOT take off without these)
+# ============================================================================
+
+# --- Flight Mode (unchanged from v1) ---
+INITIAL_MODE,17
+FLTMODE3,18
+
+
+# --- Tilt and throttle limits (TIGHTER than v1 for light load) ---
+# Q_ANGLE_MAX: 1500 -> 1000 (15deg -> 10deg, low inertia means faster rotation)
+Q_ANGLE_MAX,1000
+
+# THR_MAX: 65 -> 35 (forward throttle even more limited)
+THR_MAX,35
+
+# Q_M_SPIN_MAX: 0.85 -> 0.40 (motor max output capped at 40% of full range)
+# At 200kg test weight, max thrust at 40% is more than enough to lift it
+Q_M_SPIN_MAX,0.40
+
+# Q_M_SPIN_MIN: 0.15 -> 0.10 (minimum effective throttle lower)
+# Need more granularity below the actual hover point (~20%)
+Q_M_SPIN_MIN,0.10
+
+
+# --- Hover throttle estimate (CRITICAL for QHOVER mode) ---
+# v1 had 0.50 (for 700kg design). 200kg actual is ~0.25.
+# If wrong, QHOVER will violently push throttle to find "hover point"
+Q_M_THST_HOVER,0.25
+
+# Disable auto-learn (would learn wrong values under iron-bird constraint)
+Q_M_HOVER_LEARN,0
+
+
+# --- IMU 1 disabled (X/Y axes flipped per 0501 log analysis) ---
+INS_USE2,0
+EK3_IMU_MASK,1
+
+
+# --- Simplify AHRS for iron-bird environment ---
+AHRS_EKF_TYPE,0
+GPS1_TYPE,0
+COMPASS_USE,0
+COMPASS_USE2,0
+COMPASS_USE3,0
+
+
+# --- ARMING checks (skip GPS/Compass/Battery for iron-bird) ---
+ARMING_CHECK,82
+
+
+# ============================================================================
+# P0+ - NEW IN V2: Use ESC telemetry as 800V main bus battery monitor
+# ============================================================================
+# v1 had BATT_MONITOR=0 (manual monitoring). v2 uses ESC voltage feedback:
+#   - All 16 ESCs report 0.1V resolution voltage at ~100Hz on DroneCAN
+#   - ArduPilot AP_BattMonitor_ESC averages voltages, sums currents
+#   - Provides true 800V bus voltage to flight controller (not 24V backup battery)
+
+# Enable ESC-based battery monitoring (type 9 = "BLHeliESC" but works with DroneCAN)
+BATT_MONITOR,9
+
+# Use all 16 ESCs (mask=0 means all enabled)
+BATT_ESC_MASK,0
+
+# Battery capacity (60Ah estimate, adjust to actual battery setup)
+BATT_CAPACITY,60000
+
+# Low voltage thresholds for 800V bus
+BATT_LOW_VOLT,720
+BATT_CRT_VOLT,680
+BATT_LOW_TIMER,5
+
+# Failsafe actions
+BATT_FS_LOW_ACT,1
+BATT_FS_CRT_ACT,1
+BATT_FS_VOLTSRC,0
+
+
+# ============================================================================
+# P1 - PID GAINS (HALVED from v1 for light load)
+# ============================================================================
+# v1 was 0.18/0.18/0.005 P/I/D for 700kg.
+# For 200kg with same motors: 3.5x lower inertia -> need lower gains.
+# Halving P from 0.18 to ~0.10 effectively keeps gain*mass product similar.
+
+Q_A_RAT_RLL_P,0.10
+Q_A_RAT_RLL_I,0.10
+Q_A_RAT_RLL_D,0.003
+
+Q_A_RAT_PIT_P,0.10
+Q_A_RAT_PIT_I,0.10
+Q_A_RAT_PIT_D,0.003
+
+# Yaw still needs decent P due to coaxial counter-rotation low torque
+Q_A_RAT_YAW_P,0.30
+Q_A_RAT_YAW_I,0.03
+
+# Angle-loop P (was 3.5 in v1, now 2.5)
+Q_A_ANG_RLL_P,2.5
+Q_A_ANG_PIT_P,2.5
+Q_A_ANG_YAW_P,2.0
+
+
+# --- I-term saturation limits (kept tight to prevent iron-bird wind-up) ---
+Q_A_RAT_RLL_IMAX,0.3
+Q_A_RAT_PIT_IMAX,0.3
+Q_A_RAT_YAW_IMAX,0.3
+
+
+# --- Pilot speed/accel limits (HALVED from v1 for fast-acceleration light load) ---
+# Units: m/s and m/s^2
+# v1 was 1.0 m/s. With 7x thrust-to-weight ratio, 1 m/s climb is achievable in 0.2s
+# v2 reduces to 0.5 m/s for safer first lift
+Q_PILOT_SPD_UP,0.5
+Q_PILOT_SPD_DN,0.5
+Q_PILOT_ACCEL_Z,0.5
+
+
+# --- RC dead zones (unchanged from v1) ---
+RC1_DZ,50
+RC2_DZ,50
+RC4_DZ,50
+
+
+# --- AHRS trim reset (must redo Level Horizon after loading) ---
+AHRS_TRIM_X,0
+AHRS_TRIM_Y,0
+
+
+# --- Failsafe disabled for iron-bird (manual monitoring is primary) ---
+THR_FAILSAFE,0
+FS_GCS_ENABL,0
+
+
+# --- Landing settings (very low altitude target for iron-bird) ---
+Q_LAND_FINAL_ALT,2
+Q_LAND_FINAL_SPD,0.2
+
+
+# ============================================================================
+# 陆科 LKZ500 power supply settings (DIFFERENT from v1 700kg version)
+# ============================================================================
+# Set on the 陆科 power supply touchscreen (NOT in this param file):
+#
+#   Voltage:        800V (unchanged)
+#   OVP:            900V (unchanged)
+#   OCP:            80A  (was 300A in v1; 200kg only needs ~40kW = 50A hover)
+#   OPP:            64kW (was 240kW in v1)
+#
+# Reasoning:
+#   200kg / 9.81 = 1960N hover thrust
+#   Estimated hover power at 800V bus ~= 30-40 kW
+#   80A current limit gives 60-100% headroom for transients
+#
+# DO NOT set higher current limits "just to be safe" - higher limits mean
+# higher available fault current if something shorts.
+# ============================================================================
+
+
+# ============================================================================
+# Iron-bird mechanical safety (200kg test article)
+# ============================================================================
+# - Tether: must withstand 800 kg pull (16 motors x 50N peak / motor x safety factor 2)
+# - Tether length: 0.5-1.0m (limit max upward escape distance)
+# - Iron-bird base anchoring: ground anchors, also 800kg rated
+# - DO NOT use "200kg-rated" restraints because aircraft can produce
+#   thrust = 7x its weight = 1400 kg force
+# - Vertical clearance: ceiling/canopy at least 2m above expected hover point
+# ============================================================================
+
+
+# ============================================================================
+# UNCHANGED from v1 (kept identical)
+# ============================================================================
+# - Q_FRAME_CLASS = 18 (TG700)
+# - Q_FRAME_TYPE  = 0  (COAX16)
+# - Q_M_SPIN_ARM  = 0.05 (idle throttle)
+# - CAN_D1_UC_ESC_BM = 4080
+# - CAN_D2_UC_ESC_BM = 1044480
+# - All SERVO5..SERVO20 FUNCTION mappings
+
+
+# ============================================================================
+# Operator action checklist (BEFORE first lift attempt)
+# ============================================================================
+#
+# [ ] 1. Mission Planner -> Full Parameter Tree -> Load from file -> v2.param
+# [ ] 2. Click "Write Params"
+# [ ] 3. Power-cycle flight controller
+# [ ] 4. Verify Q_M_THST_HOVER reads 0.25 (not 0.35 or 0.50)
+# [ ] 5. Verify BATT_MONITOR reads 9
+# [ ] 6. Accelerometer 6-side calibration
+# [ ] 7. RC calibration
+# [ ] 8. Level Horizon calibration (aircraft level on iron-bird)
+# [ ] 9. Motor Test (16 motors must rotate)
+# [ ] 10. Mission Planner Status -> verify BatteryVoltage shows ~203V or 800V
+#         (NOT 24V which was the wrong backup battery reading)
+# [ ] 11. Set 陆科 OCP to 80A, OPP to 64kW
+# [ ] 12. Tether/restraint pull-test to confirm 800kg rating
+# [ ] 13. Designate dedicated person to watch 陆科 voltage/current
+# [ ] 14. Designate ESTOP operator with hand on PDU red button
+# [ ] 15. First lift: throttle to 18% slowly, observe motor sound;
+#         then 1% increments until lift; HOLD 1 sec only; reduce to 15%
+#
+# ============================================================================
