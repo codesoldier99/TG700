@@ -1,0 +1,164 @@
+# ============================================================================
+# TG700 First-Takeoff Parameter Set v1.0  (P0 + P1 fixes)
+# Date: 2026-05-02
+# Baseline: logs/20260501.param (yesterday's test)
+# Purpose: Final parameter adjustment before first-takeoff iron-bird flight
+# Load via: Mission Planner -> CONFIG -> Full Parameter Tree -> Load from file
+#
+# Required actions after loading:
+#   - Click "Write Params" in Mission Planner
+#   - Power-cycle flight controller
+#   - Re-do accelerometer 6-side calibration + RC calibration
+#   - Verify IMU 1 status (see INS_USE2 note)
+#   - Manually monitor 800V main DC bus voltage during flight
+# ============================================================================
+
+
+# ============================================================================
+# P0 - CRITICAL SAFETY (must apply, do NOT take off without these)
+# ============================================================================
+
+# --- Flight Mode: prevent accidental MANUAL mode entry ---
+# 17 = QSTABILIZE; 18 = QHOVER; 0 = MANUAL (DANGEROUS for VTOL)
+INITIAL_MODE,17
+FLTMODE3,18
+
+
+# --- Tilt and throttle limits (conservative for first flight) ---
+# Q_ANGLE_MAX in centidegrees: 1500 = 15 deg max bank
+Q_ANGLE_MAX,1500
+
+# Forward throttle max (fixed-wing throttle channel)
+THR_MAX,65
+
+# VTOL motor max output ratio (0.95 -> 0.85 to avoid full saturation)
+Q_M_SPIN_MAX,0.85
+
+
+# --- Disable hover-throttle auto-learn (iron-bird gives wrong reference) ---
+Q_M_HOVER_LEARN,0
+
+# More realistic initial guess for 700kg aircraft (was 0.35)
+Q_M_THST_HOVER,0.50
+
+
+# --- Disable IMU 1 (log shows X/Y axes flipped vs IMU 0/2) ---
+# Re-enable to 1 only after vendor confirms IMU 1 rotation matrix is correct
+INS_USE2,0
+EK3_IMU_MASK,1
+
+
+# --- Simplify AHRS for iron-bird environment (no GPS, polluted compass) ---
+# 0 = DCM only (robust, no GPS dependency)
+AHRS_EKF_TYPE,0
+
+# Disable GPS hardware (iron-bird has no GPS need)
+GPS1_TYPE,0
+
+# Disable all 3 compass instances (metal frame pollutes magnetic field)
+COMPASS_USE,0
+COMPASS_USE2,0
+COMPASS_USE3,0
+
+
+# --- Disable battery monitor (was reading 24V backup battery, NOT 800V bus) ---
+# Main 800V bus is monitored manually via PDU voltmeter for first flight
+BATT_MONITOR,0
+
+
+# --- Custom arming check bitmask (skip GPS/Compass/Battery checks) ---
+# 82 = INS(16) + PARAMS(32) + RC(64) - keeps the only meaningful checks
+ARMING_CHECK,82
+
+
+# ============================================================================
+# P1 - RECOMMENDED (strongly suggested)
+# ============================================================================
+
+# --- Conservative VTOL PID gains (default 0.25 P too aggressive for 700kg) ---
+Q_A_RAT_RLL_P,0.18
+Q_A_RAT_RLL_I,0.18
+Q_A_RAT_RLL_D,0.005
+
+Q_A_RAT_PIT_P,0.18
+Q_A_RAT_PIT_I,0.18
+Q_A_RAT_PIT_D,0.005
+
+# Coaxial counter-rotating yaw torque is weak; raise YAW_P
+Q_A_RAT_YAW_P,0.40
+Q_A_RAT_YAW_I,0.04
+
+# Angle-loop P (default 4.5 -> 3.5)
+Q_A_ANG_RLL_P,3.5
+Q_A_ANG_PIT_P,3.5
+Q_A_ANG_YAW_P,2.5
+
+
+# --- Lower I-term saturation limits (avoid wind-up under iron-bird constraint) ---
+Q_A_RAT_RLL_IMAX,0.3
+Q_A_RAT_PIT_IMAX,0.3
+Q_A_RAT_YAW_IMAX,0.3
+
+
+# --- Pilot speed/accel limits (slow for first flight) ---
+# Units: m/s and m/s^2
+Q_PILOT_SPD_UP,1.0
+Q_PILOT_SPD_DN,1.0
+Q_PILOT_ACCEL_Z,1.0
+
+
+# --- RC dead zones enlarged (prevent stick-shake during hover) ---
+RC1_DZ,50
+RC2_DZ,50
+RC4_DZ,50
+
+
+# --- AHRS trim reset (must redo Level Calibration after loading) ---
+AHRS_TRIM_X,0
+AHRS_TRIM_Y,0
+
+
+# --- Disable RC/GCS failsafe for iron-bird (manual safety only) ---
+THR_FAILSAFE,0
+FS_GCS_ENABL,0
+
+
+# --- Landing settings (iron-bird is low altitude) ---
+Q_LAND_FINAL_ALT,3
+Q_LAND_FINAL_SPD,0.3
+
+
+# ============================================================================
+# UNCHANGED (kept identical to 20260501.param baseline)
+# ============================================================================
+# - Q_FRAME_CLASS = 18 (TG700)
+# - Q_FRAME_TYPE  = 0  (COAX16)
+# - Q_M_SPIN_ARM  = 0.05 (idle throttle)
+# - Q_M_SPIN_MIN  = 0.15 (minimum effective throttle)
+# - CAN_D1_UC_ESC_BM = 4080
+# - CAN_D2_UC_ESC_BM = 1044480
+# - All SERVO5..SERVO20 FUNCTION mappings unchanged
+
+
+# ============================================================================
+# CHECKLIST AFTER LOADING (must complete before first takeoff)
+# ============================================================================
+#
+# [ ] 1. Mission Planner -> Full Parameter Tree -> Write Params
+# [ ] 2. Power-cycle flight controller
+# [ ] 3. Accelerometer 6-side calibration
+#        (Setup -> Mandatory Hardware -> Accel Calibration)
+# [ ] 4. RC calibration
+#        (Setup -> Mandatory Hardware -> Radio Calibration)
+# [ ] 5. Place aircraft level on iron-bird -> Calibrate Level Horizon
+# [ ] 6. Motor Test (Setup -> Optional Hardware -> Motor Test)
+#        Expected order: front-right 4 -> front-left 4 -> rear-right 4 -> rear-left 4
+# [ ] 7. Stick direction ground test (low throttle ~30%, no props or shielded):
+#        Roll right  -> right motors decrease, left motors increase
+#        Pitch fwd   -> front motors decrease, rear motors increase
+#        Yaw right   -> CW (odd ESC) decrease, CCW (even ESC) increase
+# [ ] 8. Designate dedicated person to monitor PDU 800V bus voltmeter
+# [ ] 9. Emergency-stop button in operator's reach
+# [ ] 10. First takeoff: 2-3 sec hover -> immediate landing -> log review
+#
+# ============================================================================
