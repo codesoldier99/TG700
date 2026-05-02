@@ -1334,7 +1334,13 @@ void AP_MotorsMatrix::setup_motors(motor_frame_class frame_class, motor_frame_ty
 #endif //AP_MOTORS_FRAME_DECA_ENABLED
 #if AP_MOTORS_FRAME_TG700_ENABLED
     case MOTOR_FRAME_TG700:
-        success = setup_motors_tg700();
+        // frame_type=0 (PLUS/COAX16): 16-motor original
+        // frame_type=1 (X/COAX8):      8-motor X8 inner-pods only
+        if (frame_type == MOTOR_FRAME_TYPE_X) {
+            success = setup_motors_tg700_x8();
+        } else {
+            success = setup_motors_tg700();
+        }
         break;
  #endif // AP_MOTORS_FRAME_TG700_ENABLED
     default:

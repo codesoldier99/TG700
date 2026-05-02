@@ -172,3 +172,75 @@ bool AP_MotorsMatrix::setup_motors_tg700()
 
     return true;
 }
+
+/*
+ * ============================================================================
+ * 天工700 同轴X8 电机混控 (Q_FRAME_TYPE = 1)
+ *
+ * 改造说明: 去掉外排4个吊舱 (P1/P4/P5/P8, Y=±3.4m), 仅保留内排4个吊舱:
+ *   P2 前右内 (Y=+1.6m), P6 后右内 (Y=+1.6m) → CAN1
+ *   P3 前左内 (Y=-1.6m), P7 后左内 (Y=-1.6m) → CAN2
+ *
+ * 机身俯视图 (仅保留电机):
+ *
+ *              机头 (+X)
+ *                ^
+ *   P3(前左内)   |   P2(前右内)
+ *   M5(上CW)     |   M1(上CW)
+ *   M6(下CCW)    |   M2(下CCW)
+ *                |
+ *   P7(后左内)   |   P6(后右内)
+ *   M7(上CW)     |   M3(上CW)
+ *   M8(下CCW)    |   M4(下CCW)
+ *                v
+ *              机尾 (-X)
+ *
+ * SERVO-CAN 路由:
+ *   SERVO5-8  (ch4-7)  → CAN1 ESC 0-3 → P2前右内 + P6后右内
+ *   SERVO9-12 (ch8-11) → CAN2 ESC 0-3 → P3前左内 + P7后左内
+ *
+ * 混控因子 (Y_max = 1.6m):
+ *   Roll  = ±(Y/1.6)  = ±1.0
+ *   Pitch = ±1.0
+ *   Yaw   = ±sin(5°) × arm/Y_max = ±0.08716 × 2.309/1.6 = ±0.1258
+ *   (arm_inner = sqrt(1.665² + 1.6²) = 2.309m)
+ * ============================================================================
+ */
+
+// ---------- X8 混控因子 ----------
+#define X8_ROLL_RIGHT       (-1.0f)
+#define X8_ROLL_LEFT        ( 1.0f)
+#define X8_PITCH_FRONT      ( 1.0f)
+#define X8_PITCH_REAR       (-1.0f)
+#define X8_YAW_CW           (-0.1258f)   // CW上桨: 反扭矩产生负偏航
+#define X8_YAW_CCW          ( 0.1258f)   // CCW下桨: 反扭矩产生正偏航
+#define X8_THROTTLE         ( 0.9956f)   // cos(5°)×cos(2°), 与COAX16相同
+
+bool AP_MotorsMatrix::setup_motors_tg700_x8()
+{
+    _frame_class_string = "TG700";
+    _frame_type_string = "COAX8";
+    _mav_type = MAV_TYPE_GENERIC;
+
+    // ===== CAN1 右侧内排: Motor1-4 → SERVO5-8 → ESC 0-3 =====
+
+    // P2: 前右内 (X=+1.665m, Y=+1.6m) — CAN1 ESC 0,1
+    add_motor_raw(AP_MOTORS_MOT_1, X8_ROLL_RIGHT, X8_PITCH_FRONT, X8_YAW_CW,  1, X8_THROTTLE);  // 上桨 CW
+    add_motor_raw(AP_MOTORS_MOT_2, X8_ROLL_RIGHT, X8_PITCH_FRONT, X8_YAW_CCW, 2, X8_THROTTLE);  // 下桨 CCW
+
+    // P6: 后右内 (X=-1.665m, Y=+1.6m) — CAN1 ESC 2,3
+    add_motor_raw(AP_MOTORS_MOT_3, X8_ROLL_RIGHT, X8_PITCH_REAR,  X8_YAW_CW,  3, X8_THROTTLE);  // 上桨 CW
+    add_motor_raw(AP_MOTORS_MOT_4, X8_ROLL_RIGHT, X8_PITCH_REAR,  X8_YAW_CCW, 4, X8_THROTTLE);  // 下桨 CCW
+
+    // ===== CAN2 左侧内排: Motor5-8 → SERVO9-12 → ESC 0-3 =====
+
+    // P3: 前左内 (X=+1.665m, Y=-1.6m) — CAN2 ESC 0,1
+    add_motor_raw(AP_MOTORS_MOT_5, X8_ROLL_LEFT,  X8_PITCH_FRONT, X8_YAW_CW,  5, X8_THROTTLE);  // 上桨 CW
+    add_motor_raw(AP_MOTORS_MOT_6, X8_ROLL_LEFT,  X8_PITCH_FRONT, X8_YAW_CCW, 6, X8_THROTTLE);  // 下桨 CCW
+
+    // P7: 后左内 (X=-1.665m, Y=-1.6m) — CAN2 ESC 2,3
+    add_motor_raw(AP_MOTORS_MOT_7, X8_ROLL_LEFT,  X8_PITCH_REAR,  X8_YAW_CW,  7, X8_THROTTLE);  // 上桨 CW
+    add_motor_raw(AP_MOTORS_MOT_8, X8_ROLL_LEFT,  X8_PITCH_REAR,  X8_YAW_CCW, 8, X8_THROTTLE);  // 下桨 CCW
+
+    return true;
+}
