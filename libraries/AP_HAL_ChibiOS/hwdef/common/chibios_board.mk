@@ -226,10 +226,12 @@ AOPT =
 TOPT = -mthumb -DTHUMB
 
 # Define C warning options here
-CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes -Werror
+# -Wno-address: suppress array-never-NULL false-positive in ChibiOS MACv2
+# driver (hal_mac_lld.c:282), triggered as error by gcc-arm-none-eabi 12+
+CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes -Werror -Wno-address
 
 # Define C++ warning options here
-CPPWARN = -Wall -Wextra -Wundef -Werror
+CPPWARN = -Wall -Wextra -Wundef -Werror -Wno-address
 
 #
 # Compiler settings
