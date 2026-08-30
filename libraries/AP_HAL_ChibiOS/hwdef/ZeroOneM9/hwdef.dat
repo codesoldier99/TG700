@@ -312,8 +312,15 @@ SPIDEV iim42653  SPI1 DEVID1  SP1_CS1 MODE3  2*MHZ  16*MHZ
 SPIDEV ramtron   SPI5 DEVID1  FRAM_CS     MODE3  8*MHZ  8*MHZ
 
 # ZeroOne X6 3 IMUs
+# NOTE (2026-07-04 TG700 flight team fix): SCH16T (IMU1) was configured as
+# ROTATION_YAW_90 from the vendor, but cross-analysis of ground/flight logs
+# (0501 and 0703 logs) shows IMU1's X/Y accel & gyro consistently mismatch
+# IMU0/IMU2 after the YAW_90 compensation. Reconstructing the raw sensor
+# reading and testing candidate rotations against IMU0 (ROTATION_NONE)
+# shows ROTATION_YAW_270 matches to within sensor noise (~0.015 m/s^2 XY
+# error) vs 0.63 m/s^2 error for YAW_90 and 0.44 m/s^2 for YAW_180.
 IMU ADIS1647x  SPI:adis16507 ROTATION_NONE SP3_DRDY1
-IMU ZeroOnex SPI:sch16t ROTATION_YAW_90
+IMU ZeroOnex SPI:sch16t ROTATION_YAW_270
 IMU Invensensev3 SPI:iim42653 ROTATION_ROLL_180             
 
 define HAL_INS_HIGHRES_SAMPLE 7
