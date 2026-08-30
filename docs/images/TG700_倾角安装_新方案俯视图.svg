@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720" font-family="Microsoft YaHei,Noto Sans CJK SC,SimHei,DejaVu Sans,sans-serif">
+  <defs>
+    <marker id="aR" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e03131"/>
+    </marker>
+    <marker id="aB" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1971c2"/>
+    </marker>
+    <marker id="aK" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529"/>
+    </marker>
+    <marker id="aG" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="tR" viewBox="0 0 10 10" refX="5" refY="5"
+            markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e03131"/>
+    </marker>
+    <marker id="tG" viewBox="0 0 10 10" refX="5" refY="5"
+            markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="720" fill="#ffffff"/>
+  <text x="450" y="34" font-size="21" font-weight="bold" text-anchor="middle" fill="#212529">天工700 电机座倾角安装方向　±X/±Y 四向约束方案</text>
+  <text x="450" y="58" font-size="13" text-anchor="middle" fill="#868e96">俯视图 · 机头朝上 · 倾角均为 5° · 红实线箭头 = 上层 CW 桨的倾斜朝向，蓝虚线箭头 = 下层 CCW 桨</text>
+  <rect x="420.0" y="208.0" width="60" height="184" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="637.0" y2="208.4" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="538.0" y2="208.4" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="362.0" y2="208.4" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="263.0" y2="208.4" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="637.0" y2="391.6" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="538.0" y2="391.6" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="362.0" y2="391.6" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="300.0" x2="263.0" y2="391.6" stroke="#adb5bd" stroke-width="1.6"/>
+  <line x1="450.0" y1="204.0" x2="450.0" y2="156.0" stroke="#212529" stroke-width="2.2" marker-end="url(#aK)"/>
+  <text x="450.0" y="148.0" font-size="14" text-anchor="middle" fill="#212529" font-weight="bold">机头 +X</text>
+  <line x1="486.0" y1="300.0" x2="542.0" y2="300.0" stroke="#212529" stroke-width="2.2" marker-end="url(#aK)"/>
+  <text x="550.0" y="305.0" font-size="14" text-anchor="start" fill="#212529" font-weight="bold">+Y 右</text>
+  <circle cx="450.0" cy="300.0" r="4" fill="#212529"/>
+  <text x="450.0" y="324.0" font-size="11.5" text-anchor="middle" fill="#868e96">重心</text>
+  <line x1="646.5" y1="208.4" x2="646.5" y2="150.4" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="646.5" y1="208.4" x2="646.5" y2="266.4" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="637.0" cy="208.4" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="637.0" y="213.4" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P1</text>
+  <text x="659.0" y="213.4" font-size="11.5" text-anchor="start" fill="#868e96">前右外</text>
+  <line x1="538.0" y1="198.9" x2="480.0" y2="198.9" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="538.0" y1="198.9" x2="596.0" y2="198.9" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="538.0" cy="208.4" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="538.0" y="213.4" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P2</text>
+  <text x="538.0" y="178.4" font-size="11.5" text-anchor="middle" fill="#868e96">前右内</text>
+  <line x1="362.0" y1="198.9" x2="304.0" y2="198.9" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="362.0" y1="198.9" x2="420.0" y2="198.9" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="362.0" cy="208.4" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="362.0" y="213.4" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P3</text>
+  <text x="362.0" y="178.4" font-size="11.5" text-anchor="middle" fill="#868e96">前左内</text>
+  <line x1="253.5" y1="208.4" x2="253.5" y2="266.4" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="253.5" y1="208.4" x2="253.5" y2="150.4" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="263.0" cy="208.4" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="263.0" y="213.4" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P4</text>
+  <text x="241.0" y="213.4" font-size="11.5" text-anchor="end" fill="#868e96">前左外</text>
+  <line x1="646.5" y1="391.6" x2="646.5" y2="333.6" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="646.5" y1="391.6" x2="646.5" y2="449.6" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="637.0" cy="391.6" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="637.0" y="396.6" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P5</text>
+  <text x="659.0" y="396.6" font-size="11.5" text-anchor="start" fill="#868e96">后右外</text>
+  <line x1="538.0" y1="401.1" x2="596.0" y2="401.1" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="538.0" y1="401.1" x2="480.0" y2="401.1" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="538.0" cy="391.6" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="538.0" y="396.6" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P6</text>
+  <text x="538.0" y="429.6" font-size="11.5" text-anchor="middle" fill="#868e96">后右内</text>
+  <line x1="362.0" y1="401.1" x2="420.0" y2="401.1" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="362.0" y1="401.1" x2="304.0" y2="401.1" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="362.0" cy="391.6" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="362.0" y="396.6" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P7</text>
+  <text x="362.0" y="429.6" font-size="11.5" text-anchor="middle" fill="#868e96">后左内</text>
+  <line x1="253.5" y1="391.6" x2="253.5" y2="449.6" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <line x1="253.5" y1="391.6" x2="253.5" y2="333.6" stroke="#1971c2" stroke-width="3.6" stroke-dasharray="8 4.5" marker-end="url(#aB)"/>
+  <circle cx="263.0" cy="391.6" r="17" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="263.0" y="396.6" font-size="13" text-anchor="middle" fill="#212529" font-weight="bold">P8</text>
+  <text x="241.0" y="396.6" font-size="11.5" text-anchor="end" fill="#868e96">后左外</text>
+  <line x1="450.0" y1="512.0" x2="538.0" y2="512.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="538.0" y1="512.0" x2="450.0" y2="512.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="450.0" y1="506.0" x2="450.0" y2="518.0" stroke="#868e96" stroke-width="1.3"/>
+  <line x1="538.0" y1="506.0" x2="538.0" y2="518.0" stroke="#868e96" stroke-width="1.3"/>
+  <text x="494.0" y="501.0" font-size="12" text-anchor="middle" fill="#868e96">内侧 |Y| = 1.6 m</text>
+  <line x1="450.0" y1="548.0" x2="637.0" y2="548.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="637.0" y1="548.0" x2="450.0" y2="548.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="450.0" y1="542.0" x2="450.0" y2="554.0" stroke="#868e96" stroke-width="1.3"/>
+  <line x1="637.0" y1="542.0" x2="637.0" y2="554.0" stroke="#868e96" stroke-width="1.3"/>
+  <text x="543.5" y="568.0" font-size="12" text-anchor="middle" fill="#868e96">外侧 |Y| = 3.4 m</text>
+  <text x="340.0" y="532.0" font-size="12" text-anchor="middle" fill="#868e96">|X| = 1.665 m　（8 组吊舱全部相同）</text>
+  <rect x="30" y="584" width="840" height="96" rx="9" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.4"/>
+  <text x="52.0" y="610.0" font-size="12.6" text-anchor="start" fill="#e03131" font-weight="bold">外侧四组 P1 P4 P5 P8 —— 沿机头 / 机尾方向倾斜（力矩臂 3.4 m）</text>
+  <text x="68.0" y="636.0" font-size="12.4" text-anchor="start" fill="#212529">右侧 P1、P5：上层朝机头，下层朝机尾</text>
+  <text x="68.0" y="658.0" font-size="12.4" text-anchor="start" fill="#212529">左侧 P4、P8：上层朝机尾，下层朝机头</text>
+  <text x="470.0" y="610.0" font-size="12.6" text-anchor="start" fill="#1971c2" font-weight="bold">内侧四组 P2 P3 P6 P7 —— 沿左 / 右方向倾斜（力矩臂 1.665 m）</text>
+  <text x="486.0" y="636.0" font-size="12.4" text-anchor="start" fill="#212529">前排 P2、P3：上层朝左，下层朝右</text>
+  <text x="486.0" y="658.0" font-size="12.4" text-anchor="start" fill="#212529">后排 P6、P7：上层朝右，下层朝左</text>
+  <text x="450.0" y="706.0" font-size="12" text-anchor="middle" fill="#868e96">四个朝向全部以机体为基准（机头 / 机尾 / 左 / 右），不依赖观察者站在哪一侧 —— 这是本方案相对旧「切向」规则的关键改进</text>
+</svg>

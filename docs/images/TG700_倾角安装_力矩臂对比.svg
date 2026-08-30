@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="780" viewBox="0 0 900 780" font-family="Microsoft YaHei,Noto Sans CJK SC,SimHei,DejaVu Sans,sans-serif">
+  <defs>
+    <marker id="aR" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e03131"/>
+    </marker>
+    <marker id="aB" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1971c2"/>
+    </marker>
+    <marker id="aK" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529"/>
+    </marker>
+    <marker id="aG" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+    <marker id="tR" viewBox="0 0 10 10" refX="5" refY="5"
+            markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e03131"/>
+    </marker>
+    <marker id="tG" viewBox="0 0 10 10" refX="5" refY="5"
+            markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="780" fill="#ffffff"/>
+  <text x="450" y="34" font-size="21" font-weight="bold" text-anchor="middle" fill="#212529">为什么外侧沿 ±X、内侧沿 ±Y：偏航力矩臂对比</text>
+  <text x="450" y="58" font-size="13" text-anchor="middle" fill="#868e96">水平力产生的偏航力矩 = 力 × 力矩臂，而力矩臂 = 重心到「力的作用线」的垂直距离</text>
+  <text x="170.0" y="112.0" font-size="14.5" text-anchor="start" fill="#212529" font-weight="bold">外侧吊舱 P1（X = 1.665 m，Y = 3.4 m）</text>
+  <line x1="200.0" y1="290.0" x2="450.0" y2="290.0" stroke="#adb5bd" stroke-width="1.4"/>
+  <line x1="200.0" y1="290.0" x2="200.0" y2="140.0" stroke="#adb5bd" stroke-width="1.4"/>
+  <text x="456.0" y="294.0" font-size="11.5" text-anchor="start" fill="#868e96">+Y</text>
+  <text x="180.0" y="136.0" font-size="11.5" text-anchor="start" fill="#868e96">+X</text>
+  <circle cx="200.0" cy="290.0" r="4.5" fill="#212529"/>
+  <text x="192.0" y="310.0" font-size="11.5" text-anchor="end" fill="#212529">重心</text>
+  <line x1="376.8" y1="336.0" x2="376.8" y2="127.4" stroke="#e03131" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="158.0" y1="203.4" x2="458.0" y2="203.4" stroke="#868e96" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="376.8" y1="203.4" x2="376.8" y2="141.4" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <text x="376.8" y="131.4" font-size="12" text-anchor="middle" fill="#e03131" font-weight="bold">沿 ±X 的水平力</text>
+  <line x1="376.8" y1="203.4" x2="438.8" y2="203.4" stroke="#868e96" stroke-width="2.4" marker-end="url(#aG)"/>
+  <text x="408.8" y="189.4" font-size="12" text-anchor="start" fill="#868e96">沿 ±Y 的水平力</text>
+  <line x1="200.0" y1="336.0" x2="376.8" y2="336.0" stroke="#e03131" stroke-width="1.5" marker-end="url(#tR)"/>
+  <line x1="376.8" y1="336.0" x2="200.0" y2="336.0" stroke="#e03131" stroke-width="1.5" marker-end="url(#tR)"/>
+  <line x1="200.0" y1="330.0" x2="200.0" y2="342.0" stroke="#e03131" stroke-width="1.3"/>
+  <line x1="376.8" y1="330.0" x2="376.8" y2="342.0" stroke="#e03131" stroke-width="1.3"/>
+  <text x="288.4" y="356.0" font-size="12.4" text-anchor="middle" fill="#e03131" font-weight="bold">力矩臂 = |Y| = 3.400 m</text>
+  <line x1="158.0" y1="290.0" x2="158.0" y2="203.4" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="158.0" y1="203.4" x2="158.0" y2="290.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="152.0" y1="290.0" x2="164.0" y2="290.0" stroke="#868e96" stroke-width="1.3"/>
+  <line x1="152.0" y1="203.4" x2="164.0" y2="203.4" stroke="#868e96" stroke-width="1.3"/>
+  <text x="146.0" y="250.7" font-size="12.4" text-anchor="end" fill="#868e96">力矩臂 = |X| = 1.665 m</text>
+  <circle cx="376.8" cy="203.4" r="16" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="376.8" y="208.4" font-size="12" text-anchor="middle" fill="#212529" font-weight="bold">P1</text>
+  <rect x="530" y="118.0" width="340" height="164" rx="9" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.4"/>
+  <text x="548.0" y="144.0" font-size="12.4" text-anchor="start" fill="#212529">外侧吊舱离机身中线很远（|Y| = 3.4 m）：</text>
+  <text x="548.0" y="168.0" font-size="12.4" text-anchor="start" fill="#212529">沿机头 / 机尾方向推，作用线离重心 3.4 m；</text>
+  <text x="548.0" y="192.0" font-size="12.4" text-anchor="start" fill="#212529">沿左 / 右方向推，作用线只离重心 1.665 m。</text>
+  <text x="548.0" y="240.0" font-size="12.4" text-anchor="start" fill="#e03131" font-weight="bold">→ 外侧四组必须沿 ±X（机头 / 机尾）倾斜</text>
+  <text x="548.0" y="264.0" font-size="12.4" text-anchor="start" fill="#e03131">　 力矩臂 3.400 m，是另一种装法的 2.04 倍</text>
+  <text x="170.0" y="462.0" font-size="14.5" text-anchor="start" fill="#212529" font-weight="bold">内侧吊舱 P2（X = 1.665 m，Y = 1.6 m）</text>
+  <line x1="200.0" y1="640.0" x2="450.0" y2="640.0" stroke="#adb5bd" stroke-width="1.4"/>
+  <line x1="200.0" y1="640.0" x2="200.0" y2="490.0" stroke="#adb5bd" stroke-width="1.4"/>
+  <text x="456.0" y="644.0" font-size="11.5" text-anchor="start" fill="#868e96">+Y</text>
+  <text x="180.0" y="486.0" font-size="11.5" text-anchor="start" fill="#868e96">+X</text>
+  <circle cx="200.0" cy="640.0" r="4.5" fill="#212529"/>
+  <text x="192.0" y="660.0" font-size="11.5" text-anchor="end" fill="#212529">重心</text>
+  <line x1="283.2" y1="686.0" x2="283.2" y2="477.4" stroke="#868e96" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="158.0" y1="553.4" x2="458.0" y2="553.4" stroke="#e03131" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <line x1="283.2" y1="553.4" x2="283.2" y2="491.4" stroke="#868e96" stroke-width="2.4" marker-end="url(#aG)"/>
+  <text x="283.2" y="481.4" font-size="12" text-anchor="middle" fill="#868e96">沿 ±X 的水平力</text>
+  <line x1="283.2" y1="553.4" x2="345.2" y2="553.4" stroke="#e03131" stroke-width="3.6" marker-end="url(#aR)"/>
+  <text x="315.2" y="539.4" font-size="12" text-anchor="start" fill="#e03131" font-weight="bold">沿 ±Y 的水平力</text>
+  <line x1="200.0" y1="686.0" x2="283.2" y2="686.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="283.2" y1="686.0" x2="200.0" y2="686.0" stroke="#868e96" stroke-width="1.5" marker-end="url(#tG)"/>
+  <line x1="200.0" y1="680.0" x2="200.0" y2="692.0" stroke="#868e96" stroke-width="1.3"/>
+  <line x1="283.2" y1="680.0" x2="283.2" y2="692.0" stroke="#868e96" stroke-width="1.3"/>
+  <text x="241.6" y="706.0" font-size="12.4" text-anchor="middle" fill="#868e96">力矩臂 = |Y| = 1.600 m</text>
+  <line x1="158.0" y1="640.0" x2="158.0" y2="553.4" stroke="#e03131" stroke-width="1.5" marker-end="url(#tR)"/>
+  <line x1="158.0" y1="553.4" x2="158.0" y2="640.0" stroke="#e03131" stroke-width="1.5" marker-end="url(#tR)"/>
+  <line x1="152.0" y1="640.0" x2="164.0" y2="640.0" stroke="#e03131" stroke-width="1.3"/>
+  <line x1="152.0" y1="553.4" x2="164.0" y2="553.4" stroke="#e03131" stroke-width="1.3"/>
+  <text x="146.0" y="600.7" font-size="12.4" text-anchor="end" fill="#e03131" font-weight="bold">力矩臂 = |X| = 1.665 m</text>
+  <circle cx="283.2" cy="553.4" r="16" fill="#fff" stroke="#212529" stroke-width="2.6"/>
+  <text x="283.2" y="558.4" font-size="12" text-anchor="middle" fill="#212529" font-weight="bold">P2</text>
+  <rect x="530" y="468.0" width="340" height="164" rx="9" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.4"/>
+  <text x="548.0" y="494.0" font-size="12.4" text-anchor="start" fill="#212529">内侧吊舱离中线较近（|Y| = 1.6 m），已经</text>
+  <text x="548.0" y="518.0" font-size="12.4" text-anchor="start" fill="#212529">略小于前后距离 1.665 m，两种装法几乎打平，</text>
+  <text x="548.0" y="542.0" font-size="12.4" text-anchor="start" fill="#212529">但沿左 / 右方向略占优。</text>
+  <text x="548.0" y="590.0" font-size="12.4" text-anchor="start" fill="#e03131" font-weight="bold">→ 内侧四组沿 ±Y（左 / 右）倾斜</text>
+  <text x="548.0" y="614.0" font-size="12.4" text-anchor="start" fill="#e03131">　 力矩臂 1.665 m，略优于 1.600 m</text>
+  <line x1="30.0" y1="420.0" x2="870.0" y2="420.0" stroke="#dee2e6" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="450.0" y="766.0" font-size="12.2" text-anchor="middle" fill="#868e96">理想纯切向装法的力矩臂是 |r|（外侧 3.786 m / 内侧 2.309 m）；四向约束下只能取到 3.400 / 1.665，合计保留设计偏航权限的 83.5%</text>
+</svg>

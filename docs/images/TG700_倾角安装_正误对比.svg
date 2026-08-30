@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="830" viewBox="0 0 1000 830" font-family="Microsoft YaHei, DengXian, SimHei, sans-serif">
+
+  <defs>
+    <marker id="cRed" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#e03131"/>
+    </marker>
+    <marker id="cBlue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#1971c2"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="830" fill="#ffffff"/>
+
+  <text x="500" y="32" font-size="23" font-weight="bold" text-anchor="middle" fill="#212529">倾角安装：1 种正确 与 3 种典型错误</text>
+  <text x="500" y="56" font-size="12.5" text-anchor="middle" fill="#868e96">单臂俯视图（机头朝上）· 红实线 = 上层 CW 水平分力 · 蓝虚线 = 下层 CCW 水平分力 · 数值为外侧臂每单位 ΔT 的偏航力矩（N·m/N）</text>
+
+  <!-- ============ 面板 1：正确 ============ -->
+  <g transform="translate(25,75)">
+    <rect width="460" height="345" rx="10" fill="#f4fce3" stroke="#a9e34b" stroke-width="2"/>
+    <text x="20" y="28" font-size="15.5" font-weight="bold" fill="#2b8a3e">【正确】上下切向反向，形成力偶</text>
+
+    <line x1="68" y1="228" x2="272" y2="112" stroke="#ced4da" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="128" y="190" font-size="11" fill="#adb5bd" transform="rotate(-30 128 190)">r = 3.786 m</text>
+    <circle cx="68" cy="228" r="7" fill="#495057"/>
+    <text x="50" y="250" font-size="12" fill="#495057">CG</text>
+
+    <line x1="272" y1="112" x2="240.4" y2="56.4" stroke="#e03131" stroke-width="3.4" marker-end="url(#cRed)"/>
+    <line x1="272" y1="112" x2="303.6" y2="167.6" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#cBlue)"/>
+    <circle cx="272" cy="112" r="14" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+    <text x="272" y="117" font-size="11" font-weight="bold" text-anchor="middle" fill="#212529">P1</text>
+
+    <text x="234" y="50" font-size="11.5" font-weight="bold" text-anchor="end" fill="#e03131">上层，逆时针侧</text>
+    <text x="314" y="182" font-size="11.5" font-weight="bold" fill="#1971c2">下层，顺时针侧</text>
+
+    <line x1="20" y1="262" x2="440" y2="262" stroke="#c0eb75" stroke-width="1.5"/>
+    <text x="20" y="286" font-size="12.5" fill="#212529">上层减推力、下层加推力，两个水平力都推向<tspan font-weight="bold">同一转向</tspan></text>
+    <text x="20" y="307" font-size="12.5" fill="#212529">倾角项 <tspan font-weight="bold" fill="#2b8a3e">+0.330</tspan>　反扭矩项 <tspan font-weight="bold">+0.006</tspan>　（同号叠加）</text>
+    <text x="20" y="332" font-size="13.5" font-weight="bold" fill="#2b8a3e">净偏航力矩 = +0.336　权限 100%（基准）</text>
+  </g>
+
+  <!-- ============ 面板 2：错法 1 上下同向 ============ -->
+  <g transform="translate(515,75)">
+    <rect width="460" height="345" rx="10" fill="#fff9db" stroke="#ffd43b" stroke-width="2"/>
+    <text x="20" y="28" font-size="15.5" font-weight="bold" fill="#e67700">【错法 1】上下同向，力偶消失</text>
+
+    <line x1="68" y1="228" x2="272" y2="112" stroke="#ced4da" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="68" cy="228" r="7" fill="#495057"/>
+    <text x="50" y="250" font-size="12" fill="#495057">CG</text>
+
+    <line x1="272" y1="112" x2="240.4" y2="56.4" stroke="#e03131" stroke-width="3.4" marker-end="url(#cRed)"/>
+    <line x1="285.9" y1="104.1" x2="254.3" y2="48.5" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#cBlue)"/>
+    <circle cx="272" cy="112" r="14" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+    <text x="272" y="117" font-size="11" font-weight="bold" text-anchor="middle" fill="#212529">P1</text>
+
+    <text x="318" y="72" font-size="11.5" font-weight="bold" fill="#e8590c">两力平行同向</text>
+    <text x="234" y="50" font-size="11.5" font-weight="bold" text-anchor="end" fill="#c92a2a">上下都倾同一侧</text>
+
+    <line x1="20" y1="262" x2="440" y2="262" stroke="#ffe066" stroke-width="1.5"/>
+    <text x="20" y="286" font-size="12.5" fill="#212529">切向力矩正比于（T上 + T下），与差动 ΔT <tspan font-weight="bold">无关</tspan></text>
+    <text x="20" y="307" font-size="12.5" fill="#212529">倾角项 <tspan font-weight="bold" fill="#e8590c">0</tspan>（退化为恒定偏置）　反扭矩项 <tspan font-weight="bold">+0.006</tspan></text>
+    <text x="20" y="332" font-size="13.5" font-weight="bold" fill="#e67700">净偏航力矩 = +0.006　权限仅 1.8%（下降 56 倍）</text>
+  </g>
+
+  <!-- ============ 面板 3：错法 2 径向 ============ -->
+  <g transform="translate(25,440)">
+    <rect width="460" height="345" rx="10" fill="#fff9db" stroke="#ffd43b" stroke-width="2"/>
+    <text x="20" y="28" font-size="15.5" font-weight="bold" fill="#e67700">【错法 2】装成径向（朝内 / 朝外），力臂 = 0</text>
+
+    <line x1="343.4" y1="71.4" x2="37.4" y2="245.4" stroke="#fa5252" stroke-width="1.4" stroke-dasharray="6 5"/>
+    <text x="98" y="104" font-size="11.5" font-weight="bold" fill="#fa5252">作用线穿过 CG，力臂 = 0</text>
+    <circle cx="68" cy="228" r="7" fill="#495057"/>
+    <text x="50" y="250" font-size="12" fill="#495057">CG</text>
+
+    <line x1="272" y1="112" x2="216.4" y2="143.6" stroke="#e03131" stroke-width="3.4" marker-end="url(#cRed)"/>
+    <line x1="279.9" y1="125.9" x2="224.3" y2="157.5" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#cBlue)"/>
+    <circle cx="272" cy="112" r="14" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+    <text x="272" y="117" font-size="11" font-weight="bold" text-anchor="middle" fill="#212529">P1</text>
+
+    <text x="232" y="184" font-size="11.5" font-weight="bold" fill="#e8590c">水平力沿半径方向</text>
+
+    <line x1="20" y1="262" x2="440" y2="262" stroke="#ffe066" stroke-width="1.5"/>
+    <text x="20" y="286" font-size="12.5" fill="#212529">电机座绕自身轴装偏 90°，倾角变成纯向心 / 离心</text>
+    <text x="20" y="307" font-size="12.5" fill="#212529">倾角项 <tspan font-weight="bold" fill="#e8590c">0</tspan>（无切向分量）　反扭矩项 <tspan font-weight="bold">+0.006</tspan></text>
+    <text x="20" y="332" font-size="13.5" font-weight="bold" fill="#e67700">净偏航力矩 = +0.006　权限仅 1.8%（下降 56 倍）</text>
+  </g>
+
+  <!-- ============ 面板 4：错法 3 整体反向 ============ -->
+  <g transform="translate(515,440)">
+    <rect width="460" height="345" rx="10" fill="#fff5f5" stroke="#ff8787" stroke-width="2"/>
+    <text x="20" y="28" font-size="15.5" font-weight="bold" fill="#c92a2a">【错法 3】整体反向，偏航方向反转</text>
+
+    <line x1="68" y1="228" x2="272" y2="112" stroke="#ced4da" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="68" cy="228" r="7" fill="#495057"/>
+    <text x="50" y="250" font-size="12" fill="#495057">CG</text>
+
+    <line x1="272" y1="112" x2="303.6" y2="167.6" stroke="#e03131" stroke-width="3.4" marker-end="url(#cRed)"/>
+    <line x1="272" y1="112" x2="240.4" y2="56.4" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#cBlue)"/>
+    <circle cx="272" cy="112" r="14" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+    <text x="272" y="117" font-size="11" font-weight="bold" text-anchor="middle" fill="#212529">P1</text>
+
+    <text x="234" y="50" font-size="11.5" font-weight="bold" text-anchor="end" fill="#1971c2">下层，逆时针侧</text>
+    <text x="314" y="182" font-size="11.5" font-weight="bold" fill="#e03131">上层，顺时针侧</text>
+
+    <line x1="20" y1="262" x2="440" y2="262" stroke="#ffc9c9" stroke-width="1.5"/>
+    <text x="20" y="286" font-size="12.5" fill="#212529">力偶仍存在，但方向与代码 Yaw 因子符号<tspan font-weight="bold">相反</tspan></text>
+    <text x="20" y="307" font-size="12.5" fill="#212529">倾角项 <tspan font-weight="bold" fill="#c92a2a">-0.330</tspan>　反扭矩项 <tspan font-weight="bold">+0.006</tspan></text>
+    <text x="20" y="332" font-size="13.5" font-weight="bold" fill="#c92a2a">净 = -0.324　幅值几乎不变但方向反，正反馈自旋</text>
+  </g>
+
+  <text x="500" y="812" font-size="13" text-anchor="middle" fill="#212529"><tspan font-weight="bold">日志判据：</tspan>偏航方向正确、幅值缺口约 30~50 倍、且不发散，因此排除错法 3，指向<tspan font-weight="bold" fill="#e67700">错法 1 或错法 2</tspan></text>
+
+</svg>

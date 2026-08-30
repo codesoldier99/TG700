@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="700" viewBox="0 0 940 700" font-family="Microsoft YaHei, DengXian, SimHei, sans-serif">
+
+  <defs>
+    <marker id="arrRed" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#e03131"/>
+    </marker>
+    <marker id="arrBlue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#1971c2"/>
+    </marker>
+    <marker id="arrDark" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <path d="M0,0 L11,4.5 L0,9 z" fill="#212529"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <path d="M0,0 L12,5 L0,10 z" fill="#2f9e44"/>
+    </marker>
+  </defs>
+
+  <rect width="940" height="700" fill="#ffffff"/>
+
+  <text x="470" y="34" font-size="23" font-weight="bold" text-anchor="middle" fill="#212529">天工700（TG700）电机倾角安装方向 - 俯视图</text>
+  <text x="470" y="58" font-size="13.5" text-anchor="middle" fill="#868e96">16 电机 / 8 组共轴 · 切向倾角 5° · 向心倾角 2° · 箭头 = 电机顶部（桨盘）倾斜指向</text>
+
+  <line x1="450" y1="150" x2="450" y2="108" stroke="#212529" stroke-width="2.5" marker-end="url(#arrDark)"/>
+  <text x="450" y="100" font-size="15" font-weight="bold" text-anchor="middle" fill="#212529">机头 NOSE (+X)</text>
+
+  <line x1="720" y1="310" x2="762" y2="310" stroke="#212529" stroke-width="2" marker-end="url(#arrDark)"/>
+  <text x="770" y="315" font-size="14" fill="#212529">+Y （右）</text>
+
+  <line x1="263" y1="218" x2="637" y2="218" stroke="#adb5bd" stroke-width="11" stroke-linecap="round"/>
+  <line x1="263" y1="402" x2="637" y2="402" stroke="#adb5bd" stroke-width="11" stroke-linecap="round"/>
+  <rect x="408" y="200" width="84" height="220" rx="16" fill="#e9ecef" stroke="#868e96" stroke-width="2"/>
+  <text x="450" y="288" font-size="12" text-anchor="middle" fill="#495057">机身</text>
+  <text x="450" y="340" font-size="12" text-anchor="middle" fill="#495057">CG</text>
+  <line x1="440" y1="310" x2="460" y2="310" stroke="#495057" stroke-width="1.2"/>
+  <line x1="450" y1="300" x2="450" y2="320" stroke="#495057" stroke-width="1.2"/>
+
+  <g stroke="#ced4da" stroke-width="1.2" stroke-dasharray="4 4">
+    <line x1="450" y1="310" x2="637" y2="218"/>
+    <line x1="450" y1="310" x2="538" y2="218"/>
+    <line x1="450" y1="310" x2="362" y2="218"/>
+    <line x1="450" y1="310" x2="263" y2="218"/>
+    <line x1="450" y1="310" x2="637" y2="402"/>
+    <line x1="450" y1="310" x2="538" y2="402"/>
+    <line x1="450" y1="310" x2="362" y2="402"/>
+    <line x1="450" y1="310" x2="263" y2="402"/>
+  </g>
+
+  <line x1="637" y1="218" x2="609.7" y2="162.3" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="637" y1="218" x2="664.3" y2="273.7" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="637" cy="218" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="637" y="223" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P1</text>
+
+  <line x1="538" y1="218" x2="493.3" y2="175.0" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="538" y1="218" x2="582.7" y2="261.0" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="538" cy="218" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="538" y="223" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P2</text>
+
+  <line x1="362" y1="218" x2="317.3" y2="261.0" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="362" y1="218" x2="406.7" y2="175.0" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="362" cy="218" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="362" y="223" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P3</text>
+
+  <line x1="263" y1="218" x2="235.7" y2="273.7" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="263" y1="218" x2="290.3" y2="162.3" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="263" cy="218" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="263" y="223" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P4</text>
+
+  <line x1="637" y1="402" x2="664.3" y2="346.3" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="637" y1="402" x2="609.7" y2="457.7" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="637" cy="402" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="637" y="407" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P5</text>
+
+  <line x1="538" y1="402" x2="582.7" y2="359.0" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="538" y1="402" x2="493.3" y2="445.0" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="538" cy="402" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="538" y="407" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P6</text>
+
+  <line x1="362" y1="402" x2="406.7" y2="445.0" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="362" y1="402" x2="317.3" y2="359.0" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="362" cy="402" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="362" y="407" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P7</text>
+
+  <line x1="263" y1="402" x2="290.3" y2="457.7" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <line x1="263" y1="402" x2="235.7" y2="346.3" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <circle cx="263" cy="402" r="15" fill="#fff" stroke="#343a40" stroke-width="2.4"/>
+  <text x="263" y="407" font-size="12" font-weight="bold" text-anchor="middle" fill="#212529">P8</text>
+
+  <g font-size="11.5" fill="#495057">
+    <text x="702" y="196" text-anchor="middle">前右外</text>
+    <text x="702" y="211" text-anchor="middle">Y=+3.4</text>
+    <text x="702" y="424" text-anchor="middle">后右外</text>
+    <text x="702" y="439" text-anchor="middle">Y=+3.4</text>
+    <text x="198" y="196" text-anchor="middle">前左外</text>
+    <text x="198" y="211" text-anchor="middle">Y=-3.4</text>
+    <text x="198" y="424" text-anchor="middle">后左外</text>
+    <text x="198" y="439" text-anchor="middle">Y=-3.4</text>
+    <text x="538" y="196" text-anchor="middle">前右内</text>
+    <text x="538" y="439" text-anchor="middle">后右内</text>
+    <text x="362" y="196" text-anchor="middle">前左内</text>
+    <text x="362" y="439" text-anchor="middle">后左内</text>
+  </g>
+
+  <rect x="600" y="470" width="292" height="70" rx="8" fill="#fff5f5" stroke="#ffa8a8" stroke-width="1.5"/>
+  <text x="614" y="492" font-size="13" font-weight="bold" fill="#c92a2a">右翼 4 组（P1 P2 P5 P6）</text>
+  <text x="614" y="513" font-size="12.5" fill="#495057">上层 CW  顶部偏向【机头】</text>
+  <text x="614" y="532" font-size="12.5" fill="#495057">下层 CCW 顶部偏向【机尾】</text>
+
+  <rect x="48" y="470" width="292" height="70" rx="8" fill="#f8f0fc" stroke="#d0bfff" stroke-width="1.5"/>
+  <text x="62" y="492" font-size="13" font-weight="bold" fill="#6741d9">左翼 4 组（P3 P4 P7 P8）</text>
+  <text x="62" y="513" font-size="12.5" fill="#495057">上层 CW  顶部偏向【机尾】</text>
+  <text x="62" y="532" font-size="12.5" fill="#495057">下层 CCW 顶部偏向【机头】</text>
+
+  <path d="M 372 562 A 90 90 0 0 1 528 562" fill="none" stroke="#2f9e44" stroke-width="3" marker-end="url(#arrGreen)"/>
+  <text x="450" y="590" font-size="13" font-weight="bold" text-anchor="middle" fill="#2f9e44">正偏航（俯视顺时针 CW，机头右转）</text>
+
+  <rect x="48" y="608" width="844" height="76" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5"/>
+
+  <line x1="68" y1="632" x2="128" y2="632" stroke="#e03131" stroke-width="3.4" marker-end="url(#arrRed)"/>
+  <text x="140" y="637" font-size="13" fill="#212529"><tspan font-weight="bold">上层 CW 电机</tspan>（顺时针桨）顶部倾斜方向，产生<tspan font-weight="bold">负</tspan>偏航力矩（Yaw 因子 -0.0971 / -0.0592）</text>
+
+  <line x1="68" y1="662" x2="128" y2="662" stroke="#1971c2" stroke-width="3.4" stroke-dasharray="7 4" marker-end="url(#arrBlue)"/>
+  <text x="140" y="667" font-size="13" fill="#212529"><tspan font-weight="bold">下层 CCW 电机</tspan>（逆时针桨）顶部倾斜方向，产生<tspan font-weight="bold">正</tspan>偏航力矩（Yaw 因子 +0.0971 / +0.0592）</text>
+
+  <text x="470" y="696" font-size="11.5" text-anchor="middle" fill="#868e96">灰色虚线 = 该电机到重心的半径；倾角箭头始终【垂直于半径】（纯切向），另叠加 2° 向心分量（本图未画）</text>
+
+</svg>
