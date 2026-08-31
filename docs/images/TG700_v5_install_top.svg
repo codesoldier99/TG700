@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="660" viewBox="0 0 1020 660" font-family="'Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Zen Hei',sans-serif">
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#12862f"/></marker>
+<marker id="tipk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1c1c"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="510" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1c1c1c">图1  TG700 方案B (v5.0 同转棋盘) 安装俯视图 — 从上方看, 机头朝上</text>
+<text x="510" y="55" text-anchor="middle" font-size="14" fill="#6b6b6b">每组上下两台转向相同、倾角同向；倾角全部背离重心向外</text>
+<line x1="200.4" y1="196.1" x2="819.6" y2="196.1" stroke="#e6e6e6" stroke-width="11"/>
+<line x1="200.4" y1="475.9" x2="819.6" y2="475.9" stroke="#e6e6e6" stroke-width="11"/>
+<line x1="510.0" y1="162.1" x2="510.0" y2="509.9" stroke="#d4d4d4" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="510.0" y1="310.0" x2="510.0" y2="166.1" stroke="#6b6b6b" stroke-width="1.8" marker-end="url(#tipk)"/>
+<text x="518.0" y="162.1" text-anchor="start" font-size="12" fill="#6b6b6b" font-weight="normal">+X 机头</text>
+<line x1="536.0" y1="336.0" x2="628.0" y2="336.0" stroke="#6b6b6b" stroke-width="1.8" marker-end="url(#tipk)"/>
+<text x="634.0" y="340.0" text-anchor="start" font-size="12" fill="#6b6b6b" font-weight="normal">+Y 右</text>
+<circle cx="510.0" cy="336.0" r="4.5" fill="#6b6b6b"/>
+<text x="500.0" y="356.0" text-anchor="end" font-size="12" fill="#6b6b6b" font-weight="normal">CG</text>
+<circle cx="795.6" cy="196.1" r="36.0" fill="#1f6fb4" fill-opacity="0.10" stroke="#1f6fb4" stroke-width="2.4"/>
+<path d="M807.5,216.7 A23.8,23.8 0 1 0 773.3,204.3" fill="none" stroke="#1f6fb4" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="795.6" y1="158.1" x2="795.6" y2="96.1" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="843.6" y="184.1" text-anchor="start" font-size="15" fill="#1c1c1c" font-weight="bold">P1 外</text>
+<text x="843.6" y="203.1" text-anchor="start" font-size="12" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="843.6" y="221.1" text-anchor="start" font-size="12" fill="#12862f" font-weight="normal">倾角 ↑机头</text>
+<circle cx="644.4" cy="196.1" r="36.0" fill="#c1452b" fill-opacity="0.10" stroke="#c1452b" stroke-width="2.4"/>
+<path d="M632.5,216.7 A23.8,23.8 0 1 1 666.7,204.3" fill="none" stroke="#c1452b" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="682.4" y1="196.1" x2="722.4" y2="196.1" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="644.4" y="120.1" text-anchor="middle" font-size="15" fill="#1c1c1c" font-weight="bold">P2 内</text>
+<text x="644.4" y="139.1" text-anchor="middle" font-size="12" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="644.4" y="157.1" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">倾角 →右</text>
+<circle cx="375.6" cy="196.1" r="36.0" fill="#1f6fb4" fill-opacity="0.10" stroke="#1f6fb4" stroke-width="2.4"/>
+<path d="M387.5,216.7 A23.8,23.8 0 1 0 353.3,204.3" fill="none" stroke="#1f6fb4" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="337.6" y1="196.1" x2="297.6" y2="196.1" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="375.6" y="120.1" text-anchor="middle" font-size="15" fill="#1c1c1c" font-weight="bold">P3 内</text>
+<text x="375.6" y="139.1" text-anchor="middle" font-size="12" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="375.6" y="157.1" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">倾角 ←左</text>
+<circle cx="224.4" cy="196.1" r="36.0" fill="#c1452b" fill-opacity="0.10" stroke="#c1452b" stroke-width="2.4"/>
+<path d="M212.5,216.7 A23.8,23.8 0 1 1 246.7,204.3" fill="none" stroke="#c1452b" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="224.4" y1="158.1" x2="224.4" y2="96.1" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="176.4" y="184.1" text-anchor="end" font-size="15" fill="#1c1c1c" font-weight="bold">P4 外</text>
+<text x="176.4" y="203.1" text-anchor="end" font-size="12" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="176.4" y="221.1" text-anchor="end" font-size="12" fill="#12862f" font-weight="normal">倾角 ↑机头</text>
+<circle cx="795.6" cy="475.9" r="36.0" fill="#c1452b" fill-opacity="0.10" stroke="#c1452b" stroke-width="2.4"/>
+<path d="M783.7,496.4 A23.8,23.8 0 1 1 817.9,484.0" fill="none" stroke="#c1452b" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="795.6" y1="513.9" x2="795.6" y2="575.9" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="843.6" y="463.9" text-anchor="start" font-size="15" fill="#1c1c1c" font-weight="bold">P5 外</text>
+<text x="843.6" y="482.9" text-anchor="start" font-size="12" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="843.6" y="500.9" text-anchor="start" font-size="12" fill="#12862f" font-weight="normal">倾角 ↓机尾</text>
+<circle cx="644.4" cy="475.9" r="36.0" fill="#1f6fb4" fill-opacity="0.10" stroke="#1f6fb4" stroke-width="2.4"/>
+<path d="M656.3,496.4 A23.8,23.8 0 1 0 622.1,484.0" fill="none" stroke="#1f6fb4" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="682.4" y1="475.9" x2="722.4" y2="475.9" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="644.4" y="533.9" text-anchor="middle" font-size="15" fill="#1c1c1c" font-weight="bold">P6 内</text>
+<text x="644.4" y="552.9" text-anchor="middle" font-size="12" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="644.4" y="570.9" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">倾角 →右</text>
+<circle cx="375.6" cy="475.9" r="36.0" fill="#c1452b" fill-opacity="0.10" stroke="#c1452b" stroke-width="2.4"/>
+<path d="M363.7,496.4 A23.8,23.8 0 1 1 397.9,484.0" fill="none" stroke="#c1452b" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="337.6" y1="475.9" x2="297.6" y2="475.9" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="375.6" y="533.9" text-anchor="middle" font-size="15" fill="#1c1c1c" font-weight="bold">P7 内</text>
+<text x="375.6" y="552.9" text-anchor="middle" font-size="12" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="375.6" y="570.9" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">倾角 ←左</text>
+<circle cx="224.4" cy="475.9" r="36.0" fill="#1f6fb4" fill-opacity="0.10" stroke="#1f6fb4" stroke-width="2.4"/>
+<path d="M236.3,496.4 A23.8,23.8 0 1 0 202.1,484.0" fill="none" stroke="#1f6fb4" stroke-width="2.3" marker-end="url(#tipk)" opacity="0.9"/>
+<line x1="224.4" y1="513.9" x2="224.4" y2="575.9" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="176.4" y="463.9" text-anchor="end" font-size="15" fill="#1c1c1c" font-weight="bold">P8 外</text>
+<text x="176.4" y="482.9" text-anchor="end" font-size="12" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="176.4" y="500.9" text-anchor="end" font-size="12" fill="#12862f" font-weight="normal">倾角 ↓机尾</text>
+<rect x="24" y="576.0" width="972" height="56" rx="8" fill="#fafafa" stroke="#dddddd"/>
+<text x="40.0" y="596.0" text-anchor="start" font-size="13" fill="#1c1c1c" font-weight="bold">图例:</text>
+<circle cx="96" cy="591.0" r="10" fill="#1f6fb4" fill-opacity="0.12" stroke="#1f6fb4" stroke-width="2"/>
+<text x="112.0" y="596.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="normal">CW 组  P1,P3,P6,P8</text>
+<circle cx="290" cy="591.0" r="10" fill="#c1452b" fill-opacity="0.12" stroke="#c1452b" stroke-width="2"/>
+<text x="306.0" y="596.0" text-anchor="start" font-size="13" fill="#c1452b" font-weight="normal">CCW 组  P2,P4,P5,P7</text>
+<line x1="494.0" y1="591.0" x2="538.0" y2="591.0" stroke="#12862f" stroke-width="3.0" marker-end="url(#tip)"/>
+<text x="548.0" y="596.0" text-anchor="start" font-size="13" fill="#12862f" font-weight="normal">倾角方向 (上下两台同向)</text>
+<text x="40.0" y="620.0" text-anchor="start" font-size="13" fill="#1c1c1c" font-weight="normal">口诀：外侧 4 组沿 X 轴背离重心（前排→机头，后排→机尾）；内侧 4 组沿 Y 轴背离中线（右侧→右，左侧→左）。</text>
+</svg>

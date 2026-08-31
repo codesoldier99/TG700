@@ -1334,7 +1334,7 @@ void AP_MotorsMatrix::setup_motors(motor_frame_class frame_class, motor_frame_ty
 #endif //AP_MOTORS_FRAME_DECA_ENABLED
 #if AP_MOTORS_FRAME_TG700_ENABLED
     case MOTOR_FRAME_TG700:
-        success = setup_motors_tg700();
+        success = setup_motors_tg700(frame_type);
         break;
  #endif // AP_MOTORS_FRAME_TG700_ENABLED
     default:

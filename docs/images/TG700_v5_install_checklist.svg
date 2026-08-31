@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="590" viewBox="0 0 900 590" font-family="'Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Zen Hei',sans-serif">
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#12862f"/></marker>
+<marker id="tipk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1c1c"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="450" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1c1c1c">图3  由现役状态(方案A) 改为方案B 需反转的 8 台电机</text>
+<text x="450" y="55" text-anchor="middle" font-size="14" fill="#6b6b6b">反转 = 改 ESC 转向 + 换反手桨（两者必须同时做）</text>
+<rect x="60" y="88" width="780" height="368" rx="8" fill="#fbfbfb" stroke="#dcdcdc"/>
+<text x="100.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">臂位</text>
+<text x="190.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">环位</text>
+<text x="300.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">方案B 转向</text>
+<text x="420.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">上层</text>
+<text x="510.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">下层</text>
+<text x="610.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">需反转</text>
+<text x="730.0" y="114.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">倾角方向</text>
+<line x1="60" y1="124" x2="840" y2="124" stroke="#c8c8c8" stroke-width="1.6"/>
+<rect x="61" y="126.0" width="778" height="40" fill="#f4f4f4"/>
+<text x="100.0" y="152.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P1</text>
+<text x="190.0" y="152.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">外</text>
+<text x="300.0" y="152.0" text-anchor="middle" font-size="13" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="420.0" y="152.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CW</text>
+<text x="510.0" y="152.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CCW→CW</text>
+<text x="610.0" y="152.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P1下</text>
+<text x="730.0" y="152.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">机头 (+X)</text>
+<text x="100.0" y="192.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P2</text>
+<text x="190.0" y="192.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">内</text>
+<text x="300.0" y="192.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="420.0" y="192.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CW→CCW</text>
+<text x="510.0" y="192.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CCW</text>
+<text x="610.0" y="192.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P2上</text>
+<text x="730.0" y="192.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">右 (+Y)</text>
+<rect x="61" y="206.0" width="778" height="40" fill="#f4f4f4"/>
+<text x="100.0" y="232.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P3</text>
+<text x="190.0" y="232.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">内</text>
+<text x="300.0" y="232.0" text-anchor="middle" font-size="13" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="420.0" y="232.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CW</text>
+<text x="510.0" y="232.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CCW→CW</text>
+<text x="610.0" y="232.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P3下</text>
+<text x="730.0" y="232.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">左 (-Y)</text>
+<text x="100.0" y="272.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P4</text>
+<text x="190.0" y="272.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">外</text>
+<text x="300.0" y="272.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="420.0" y="272.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CW→CCW</text>
+<text x="510.0" y="272.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CCW</text>
+<text x="610.0" y="272.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P4上</text>
+<text x="730.0" y="272.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">机头 (+X)</text>
+<rect x="61" y="286.0" width="778" height="40" fill="#f4f4f4"/>
+<text x="100.0" y="312.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P5</text>
+<text x="190.0" y="312.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">外</text>
+<text x="300.0" y="312.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="420.0" y="312.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CW→CCW</text>
+<text x="510.0" y="312.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CCW</text>
+<text x="610.0" y="312.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P5上</text>
+<text x="730.0" y="312.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">机尾 (-X)</text>
+<text x="100.0" y="352.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P6</text>
+<text x="190.0" y="352.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">内</text>
+<text x="300.0" y="352.0" text-anchor="middle" font-size="13" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="420.0" y="352.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CW</text>
+<text x="510.0" y="352.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CCW→CW</text>
+<text x="610.0" y="352.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P6下</text>
+<text x="730.0" y="352.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">右 (+Y)</text>
+<rect x="61" y="366.0" width="778" height="40" fill="#f4f4f4"/>
+<text x="100.0" y="392.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P7</text>
+<text x="190.0" y="392.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">内</text>
+<text x="300.0" y="392.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">上下均 CCW</text>
+<text x="420.0" y="392.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CW→CCW</text>
+<text x="510.0" y="392.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CCW</text>
+<text x="610.0" y="392.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P7上</text>
+<text x="730.0" y="392.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">左 (-Y)</text>
+<text x="100.0" y="432.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="bold">P8</text>
+<text x="190.0" y="432.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">外</text>
+<text x="300.0" y="432.0" text-anchor="middle" font-size="13" fill="#1f6fb4" font-weight="normal">上下均 CW</text>
+<text x="420.0" y="432.0" text-anchor="middle" font-size="13" fill="#6b6b6b" font-weight="normal">CW</text>
+<text x="510.0" y="432.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="normal">CCW→CW</text>
+<text x="610.0" y="432.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">P8下</text>
+<text x="730.0" y="432.0" text-anchor="middle" font-size="13" fill="#1c1c1c" font-weight="normal">机尾 (-X)</text>
+<text x="60.0" y="494.0" text-anchor="start" font-size="14" fill="#c1452b" font-weight="bold">反转清单：P1下、P2上、P3下、P4上、P5上、P6下、P7上、P8下</text>
+<text x="60.0" y="522.0" text-anchor="start" font-size="13" fill="#1c1c1c" font-weight="normal">完成后必须用电机测试逐台确认转向与桨向一致，否则该组的升力与偏航会同时出错。</text>
+<text x="60.0" y="546.0" text-anchor="start" font-size="13" fill="#1c1c1c" font-weight="normal">参数：Q_FRAME_TYPE = 20 切到方案B；= 0 或 1 回到方案A。改参数后需重启飞控才生效。</text>
+<text x="60.0" y="570.0" text-anchor="start" font-size="13" fill="#6b6b6b" font-weight="normal">注意：共轴同转会失去下桨回收上桨旋流的收益，悬停效率略降。</text>
+</svg>

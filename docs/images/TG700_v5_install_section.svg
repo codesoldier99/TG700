@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="440" viewBox="0 0 900 440" font-family="'Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Zen Hei',sans-serif">
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#12862f"/></marker>
+<marker id="tipk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1c1c"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="450" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1c1c1c">图2  共轴组剖面 — 方案A(对转、倾角反向) 与 方案B(同转、倾角同向)</text>
+<text x="450" y="55" text-anchor="middle" font-size="14" fill="#6b6b6b">方案B 取消了“上下镜像”这一步，也就取消了现场最容易装错的地方</text>
+<rect x="40.0" y="82" width="380.0" height="290" rx="10" fill="#fbfbfb" stroke="#dcdcdc"/>
+<text x="230.0" y="108.0" text-anchor="middle" font-size="14" fill="#1c1c1c" font-weight="bold">方案A 对转：上 CW / 下 CCW，倾角必须反向</text>
+<line x1="230.0" y1="142" x2="230.0" y2="336" stroke="#9a9a9a" stroke-width="7"/>
+<text x="230.0" y="356.0" text-anchor="middle" font-size="12" fill="#6b6b6b" font-weight="normal">电机座 / 臂</text>
+<line x1="160.8" y1="195.8" x2="299.2" y2="156.2" stroke="#1f6fb4" stroke-width="6" stroke-linecap="round"/>
+<circle cx="230.0" cy="176.0" r="7" fill="#1f6fb4"/>
+<text x="144.0" y="181.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">上层</text>
+<text x="316.0" y="181.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">CW</text>
+<line x1="230.0" y1="176.0" x2="284.0" y2="138.0" stroke="#12862f" stroke-width="2.6" marker-end="url(#tip)"/>
+<line x1="160.8" y1="276.2" x2="299.2" y2="315.8" stroke="#c1452b" stroke-width="6" stroke-linecap="round"/>
+<circle cx="230.0" cy="296.0" r="7" fill="#c1452b"/>
+<text x="144.0" y="301.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">下层</text>
+<text x="316.0" y="301.0" text-anchor="start" font-size="13" fill="#c1452b" font-weight="bold">CCW</text>
+<line x1="230.0" y1="296.0" x2="176.0" y2="258.0" stroke="#12862f" stroke-width="2.6" marker-end="url(#tip)"/>
+<text x="230.0" y="400.0" text-anchor="middle" font-size="13" fill="#c1452b" font-weight="bold">上下倾角方向必须相反，装反则偏航反向或归零</text>
+<rect x="480.0" y="82" width="380.0" height="290" rx="10" fill="#fbfbfb" stroke="#dcdcdc"/>
+<text x="670.0" y="108.0" text-anchor="middle" font-size="14" fill="#1c1c1c" font-weight="bold">方案B 同转：上下同向，倾角同向</text>
+<line x1="670.0" y1="142" x2="670.0" y2="336" stroke="#9a9a9a" stroke-width="7"/>
+<text x="670.0" y="356.0" text-anchor="middle" font-size="12" fill="#6b6b6b" font-weight="normal">电机座 / 臂</text>
+<line x1="600.8" y1="195.8" x2="739.2" y2="156.2" stroke="#1f6fb4" stroke-width="6" stroke-linecap="round"/>
+<circle cx="670.0" cy="176.0" r="7" fill="#1f6fb4"/>
+<text x="584.0" y="181.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">上层</text>
+<text x="756.0" y="181.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">CW</text>
+<line x1="670.0" y1="176.0" x2="724.0" y2="138.0" stroke="#12862f" stroke-width="2.6" marker-end="url(#tip)"/>
+<line x1="600.8" y1="315.8" x2="739.2" y2="276.2" stroke="#1f6fb4" stroke-width="6" stroke-linecap="round"/>
+<circle cx="670.0" cy="296.0" r="7" fill="#1f6fb4"/>
+<text x="584.0" y="301.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">下层</text>
+<text x="756.0" y="301.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">CW</text>
+<line x1="670.0" y1="296.0" x2="724.0" y2="258.0" stroke="#12862f" stroke-width="2.6" marker-end="url(#tip)"/>
+<text x="670.0" y="400.0" text-anchor="middle" font-size="13" fill="#12862f" font-weight="bold">上下倾角完全一致，无镜像可错</text>
+</svg>
