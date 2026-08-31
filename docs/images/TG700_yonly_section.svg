@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" font-family="'Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Zen Hei',sans-serif">
+<defs>
+<marker id="au" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb4"/></marker>
+<marker id="al" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c1452b"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b6b6b"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#12862f"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="450" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1c1c1c">图2  共轴组剖面 — 从机尾向机头看 (左右就是机体的左右)</text>
+<text x="450" y="55" text-anchor="middle" font-size="14" fill="#6b6b6b">倾角全部在左右方向，没有任何前后分量</text>
+<rect x="40.0" y="82" width="380.0" height="286" rx="10" fill="#fbfbfb" stroke="#dcdcdc"/>
+<text x="230.0" y="108.0" text-anchor="middle" font-size="14" fill="#1c1c1c" font-weight="bold">前排 P1-P4：上层朝左，下层朝右</text>
+<line x1="230.0" y1="140" x2="230.0" y2="330" stroke="#9a9a9a" stroke-width="7"/>
+<text x="230.0" y="350.0" text-anchor="middle" font-size="12" fill="#6b6b6b" font-weight="normal">电机座 / 臂</text>
+<line x1="160.8" y1="193.8" x2="299.2" y2="154.2" stroke="#1f6fb4" stroke-width="6" stroke-linecap="round"/>
+<circle cx="230.0" cy="174.0" r="7" fill="#1f6fb4"/>
+<text x="144.0" y="179.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">上层</text>
+<text x="316.0" y="179.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">CW</text>
+<line x1="230.0" y1="148.0" x2="170.0" y2="148.0" stroke="#1f6fb4" stroke-width="2.8" marker-end="url(#au)"/>
+<text x="156.0" y="144.0" text-anchor="end" font-size="13" fill="#1f6fb4" font-weight="bold">左</text>
+<line x1="160.8" y1="272.2" x2="299.2" y2="311.8" stroke="#c1452b" stroke-width="6" stroke-linecap="round"/>
+<circle cx="230.0" cy="292.0" r="7" fill="#c1452b"/>
+<text x="144.0" y="297.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">下层</text>
+<text x="316.0" y="297.0" text-anchor="start" font-size="13" fill="#c1452b" font-weight="bold">CCW</text>
+<line x1="230.0" y1="266.0" x2="290.0" y2="266.0" stroke="#c1452b" stroke-width="2.8" marker-end="url(#al)"/>
+<text x="304.0" y="262.0" text-anchor="start" font-size="13" fill="#c1452b" font-weight="bold">右</text>
+<text x="230.0" y="392.0" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">两台水平力反向 → 推力差动时力矩相加，组内推力和不变</text>
+<rect x="480.0" y="82" width="380.0" height="286" rx="10" fill="#fbfbfb" stroke="#dcdcdc"/>
+<text x="670.0" y="108.0" text-anchor="middle" font-size="14" fill="#1c1c1c" font-weight="bold">后排 P5-P8：上层朝右，下层朝左</text>
+<line x1="670.0" y1="140" x2="670.0" y2="330" stroke="#9a9a9a" stroke-width="7"/>
+<text x="670.0" y="350.0" text-anchor="middle" font-size="12" fill="#6b6b6b" font-weight="normal">电机座 / 臂</text>
+<line x1="600.8" y1="154.2" x2="739.2" y2="193.8" stroke="#1f6fb4" stroke-width="6" stroke-linecap="round"/>
+<circle cx="670.0" cy="174.0" r="7" fill="#1f6fb4"/>
+<text x="584.0" y="179.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">上层</text>
+<text x="756.0" y="179.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">CW</text>
+<line x1="670.0" y1="148.0" x2="730.0" y2="148.0" stroke="#1f6fb4" stroke-width="2.8" marker-end="url(#au)"/>
+<text x="744.0" y="144.0" text-anchor="start" font-size="13" fill="#1f6fb4" font-weight="bold">右</text>
+<line x1="600.8" y1="311.8" x2="739.2" y2="272.2" stroke="#c1452b" stroke-width="6" stroke-linecap="round"/>
+<circle cx="670.0" cy="292.0" r="7" fill="#c1452b"/>
+<text x="584.0" y="297.0" text-anchor="end" font-size="13" fill="#1c1c1c" font-weight="bold">下层</text>
+<text x="756.0" y="297.0" text-anchor="start" font-size="13" fill="#c1452b" font-weight="bold">CCW</text>
+<line x1="670.0" y1="266.0" x2="610.0" y2="266.0" stroke="#c1452b" stroke-width="2.8" marker-end="url(#al)"/>
+<text x="596.0" y="262.0" text-anchor="end" font-size="13" fill="#c1452b" font-weight="bold">左</text>
+<text x="670.0" y="392.0" text-anchor="middle" font-size="12" fill="#12862f" font-weight="normal">两台水平力反向 → 推力差动时力矩相加，组内推力和不变</text>
+</svg>
